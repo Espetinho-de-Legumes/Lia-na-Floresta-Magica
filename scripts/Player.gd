@@ -122,16 +122,20 @@ func acelerar() -> void:
 
 func handleJumpState(delta: float) -> void:
 	if directionInput.y < 0:
+		set_collision_mask_bit(1, false)
+		print(get_collision_mask_bit(1))
 		if inAirTime < (jumpSustain / 1000):
 			velocity.y = jumpForce
 			inAirTime += delta
-	else:
+	elif directionInput.y == 0:
 		inAirTime = jumpSustain/1000
 	
+	if velocity.y > 0:
+		set_collision_mask_bit(1, true)
+	
 	if is_on_floor():
-		if directionInput.y == 0:
-			inAirTime = 0
-			changeState(IDLE)
+		inAirTime = 0
+		changeState(IDLE)
 	else:
 		if directionInput.x > 0 || directionInput.x < 0:
 			acelerar()
