@@ -10,7 +10,7 @@ export (int) var maxSpeed = 340
 export (int) var acceleration = 35
 export (int) var friction = -20
 export (int) var gravity = 2600 # pixel/sec
-export (int) var jumpForce = -650
+export (int) var jumpForce = -450
 export (float) var jumpSustain = 250 # milisegundos
 
 var inAirTime:float = 0
