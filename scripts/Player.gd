@@ -9,9 +9,9 @@ enum {
 export (int) var maxSpeed = 340
 export (int) var acceleration = 35
 export (int) var friction = -20
-export (int) var gravity = 1800 # pixel/sec
-export (int) var jumpForce = -150
-export (float) var jumpSustain = 100 # milisegundos
+export (int) var gravity = 2600 # pixel/sec
+export (int) var jumpForce = -650
+export (float) var jumpSustain = 250 # milisegundos
 
 var inAirTime:float = 0
 var velocity := Vector2.ZERO
@@ -123,7 +123,7 @@ func acelerar() -> void:
 func handleJumpState(delta: float) -> void:
 	if directionInput.y < 0:
 		if inAirTime < (jumpSustain / 1000):
-			velocity.y += jumpForce
+			velocity.y = jumpForce
 			inAirTime += delta
 	else:
 		inAirTime = jumpSustain/1000
