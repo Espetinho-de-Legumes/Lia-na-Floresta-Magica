@@ -6,33 +6,38 @@ enum {
 	JUMP
 }
 
-export (int) var maxSpeed = 400
-export (int) var acceleration = 150
-export (int) var friction = -60
+export (int) var maxSpeed = 340
+export (int) var acceleration = 35
+export (int) var friction = -20
 export (int) var gravity = 1200 # pixel/sec
+export (int) var jumpForce = -600
 
 var velocity := Vector2.ZERO
 var directionInput := Vector2.ZERO
 var currentState:int = IDLE
 var prevState:int = IDLE
 
-func _process(delta: float) -> void:
+
+func _unhandled_input(event: InputEvent) -> void:
 	basicInputs()
 	
+	pass
+
+func _process(delta: float) -> void:
 	match currentState:
 		IDLE:
-			handleIdleState()
+			handleIdleState(delta)
 		RUN:
-			handleRunState()
+			handleRunState(delta)
 		JUMP:
-			handleJumpState()
+			handleJumpState(delta)
 	
 	pass
 
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
-	
 	move()
+	
 	pass
 
 func basicInputs() -> void:
@@ -51,37 +56,53 @@ func basicInputs() -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		directionInput.y = -1
+	else:
+		directionInput.y = 0
 	
 	directionInput.normalized()
 	pass
 
-
 func applyGravity(delta) -> void:
-	if is_on_floor():
-		velocity.y = 0
-	else:
-		velocity.y += gravity * delta
+	velocity.y += gravity * delta
 	
 	pass
 	
 func move() -> void:
-	if directionInput.x == 0:
-		desacelerar()
-	else:
-		acelerar()
-	
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	pass
+
+func handleIdleState(delta: float) -> void:
+	desacelerar()
+	
+	if directionInput.x > 0 or directionInput.x < 0:
+		changeState(RUN)
+	else:
+		changeState(IDLE)
+	
+	if directionInput.y < 0:
+		changeState(JUMP)
+	pass
+
+func handleRunState(delta: float) -> void:
+	if directionInput.x > 0 || directionInput.x < 0:
+		acelerar()
+	else:
+		desacelerar()
+	
+	if directionInput.y < 0:
+		changeState(JUMP)
+	
 	pass
 
 func desacelerar() -> void:
 	velocity.x += friction
 	
-	if friction < 0:
-		if velocity.x <= 0:
-			velocity.x = 0
-	else:
-		if velocity.x >= 0:
-			velocity.x = 0
+	if (friction < 0 && velocity.x <= 0) || (friction > 0 && velocity.x >= 0):
+		velocity.x = 0
+		
+		if is_on_floor() && currentState != IDLE:
+			changeState(IDLE)
 	
 	pass
 
@@ -96,21 +117,18 @@ func acelerar() -> void:
 			velocity.x = -maxSpeed
 	
 	pass
-	
-func handleIdleState() -> void:
-	if directionInput.x > 0 or directionInput.x < 0:
-		print("Change State to Run")
+
+func handleJumpState(delta: float) -> void:
+	if is_on_floor():
+		if directionInput.y < 0:
+			velocity.y = jumpForce
+		else:
+			changeState(IDLE)
 	else:
-		print("Change State to Idle")
-	
-	if directionInput.y < 0:
-		print("Change State to Jump")
-	pass
-
-func handleRunState() -> void:
-	pass
-
-func handleJumpState() -> void:
+		if directionInput.x > 0 || directionInput.x < 0:
+			acelerar()
+		else:
+			desacelerar()
 	pass
 
 func changeState(newState: int) -> void:
