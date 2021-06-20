@@ -9,7 +9,6 @@ extents = Vector2( 16, 32 )
 rotation = 0.00246024
 collision_mask = 10
 script = ExtResource( 1 )
-jumpForce = -700
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -16.0

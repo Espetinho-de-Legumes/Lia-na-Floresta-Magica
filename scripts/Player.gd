@@ -6,18 +6,19 @@ enum {
 	JUMP
 }
 
-export (int) var maxSpeed = 340
-export (int) var acceleration = 35
-export (int) var friction = -20
-export (int) var gravity = 2600 # pixel/sec
-export (int) var jumpForce = -450
-export (float) var jumpSustain = 250 # milisegundos
+export (float) var maxSpeed = 340.0
+export (float) var acceleration = 35.0
+export (float) var friction = -20.0
+export (float) var gravity = 2600.0 # pixel/sec
+export (float) var jumpForce = -680.0
+export (float) var jumpSustain = 220.0 # milisegundos
 
-var inAirTime:float = 0
+var inAirTime:float = 0.0
+var hasJumped:bool = false
 var velocity := Vector2.ZERO
 var directionInput := Vector2.ZERO
 var currentState:int = IDLE
-var prevState:int = IDLE
+var prevState:float = IDLE
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -82,7 +83,7 @@ func handleIdleState(delta: float) -> void:
 	else:
 		changeState(IDLE)
 	
-	if directionInput.y < 0:
+	if canJump():
 		changeState(JUMP)
 	pass
 
@@ -92,9 +93,8 @@ func handleRunState(delta: float) -> void:
 	else:
 		desacelerar()
 	
-	if directionInput.y < 0:
+	if canJump():
 		changeState(JUMP)
-	
 	pass
 
 func desacelerar() -> void:
@@ -120,21 +120,20 @@ func acelerar() -> void:
 	
 	pass
 
+func canJump() -> bool:
+	return directionInput.y < 0 && is_on_floor()
+
 func handleJumpState(delta: float) -> void:
 	if directionInput.y < 0:
-		set_collision_mask_bit(1, false)
-		print(get_collision_mask_bit(1))
-		if inAirTime < (jumpSustain / 1000):
+		if inAirTime < jumpSustain:
 			velocity.y = jumpForce
-			inAirTime += delta
+			inAirTime += delta * 1000.0
 	elif directionInput.y == 0:
-		inAirTime = jumpSustain/1000
+		inAirTime = jumpSustain
 	
-	if velocity.y > 0:
-		set_collision_mask_bit(1, true)
-	
-	if is_on_floor():
+	if is_on_floor() && velocity.y >= 0.0:
 		inAirTime = 0
+		hasJumped = false
 		changeState(IDLE)
 	else:
 		if directionInput.x > 0 || directionInput.x < 0:
