@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 32 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
@@ -9,6 +12,8 @@ extents = Vector2( 16, 32 )
 rotation = 0.00246024
 collision_mask = 10
 script = ExtResource( 1 )
+jumpForce = -600.0
+jumpSustain = 150.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -16.0
@@ -22,6 +27,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PassThroughDetection" type="Area2D" parent="."]
+input_pickable = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassThroughDetection"]
+shape = SubResource( 2 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="."]
 self_modulate = Color( 0.0823529, 0.945098, 0.0745098, 1 )
 shape = SubResource( 1 )
+
+[connection signal="body_entered" from="PassThroughDetection" to="." method="_on_PassThroughDetection_body_entered"]
+[connection signal="body_exited" from="PassThroughDetection" to="." method="_on_PassThroughDetection_body_exited"]

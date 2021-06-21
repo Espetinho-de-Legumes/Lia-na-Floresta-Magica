@@ -19,12 +19,12 @@ var velocity := Vector2.ZERO
 var directionInput := Vector2.ZERO
 var currentState:int = IDLE
 var prevState:float = IDLE
-
+var collidingWithPlataform = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	basicInputs()
 	
-	pass
+	
 
 func _process(delta: float) -> void:
 	match currentState:
@@ -35,13 +35,13 @@ func _process(delta: float) -> void:
 		JUMP:
 			handleJumpState(delta)
 	
-	pass
+	
 
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
 	move()
 	
-	pass
+	
 
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):
@@ -63,17 +63,17 @@ func basicInputs() -> void:
 		directionInput.y = 0
 	
 	directionInput.normalized()
-	pass
+	
 
 func applyGravity(delta) -> void:
 	velocity.y += gravity * delta
 	
-	pass
+	
 	
 func move() -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	pass
+	
 
 func handleIdleState(delta: float) -> void:
 	desacelerar()
@@ -84,8 +84,9 @@ func handleIdleState(delta: float) -> void:
 		changeState(IDLE)
 	
 	if canJump():
+		print("Change State to Jump")
 		changeState(JUMP)
-	pass
+	
 
 func handleRunState(delta: float) -> void:
 	if directionInput.x > 0 || directionInput.x < 0:
@@ -95,7 +96,7 @@ func handleRunState(delta: float) -> void:
 	
 	if canJump():
 		changeState(JUMP)
-	pass
+	
 
 func desacelerar() -> void:
 	velocity.x += friction
@@ -106,7 +107,7 @@ func desacelerar() -> void:
 		if is_on_floor() && currentState != IDLE:
 			changeState(IDLE)
 	
-	pass
+	
 
 func acelerar() -> void:
 	velocity.x += directionInput.x * acceleration
@@ -118,16 +119,22 @@ func acelerar() -> void:
 		if velocity.x <= -maxSpeed:
 			velocity.x = -maxSpeed
 	
-	pass
+	
 
 func canJump() -> bool:
 	return directionInput.y < 0 && is_on_floor()
 
 func handleJumpState(delta: float) -> void:
+	if hasJumped == false:
+		set_collision_mask_bit(1, false)
+		hasJumped = true
+		velocity.y = jumpForce
+		return
+	
+	inAirTime += delta * 1000.0
 	if directionInput.y < 0:
 		if inAirTime < jumpSustain:
 			velocity.y = jumpForce
-			inAirTime += delta * 1000.0
 	elif directionInput.y == 0:
 		inAirTime = jumpSustain
 	
@@ -140,10 +147,18 @@ func handleJumpState(delta: float) -> void:
 			acelerar()
 		else:
 			desacelerar()
-	pass
+	
+	if velocity.y >= 0 && !collidingWithPlataform:
+		set_collision_mask_bit(1, true)
 
 func changeState(newState: int) -> void:
 	if currentState != newState:
 		prevState = currentState
 		currentState = newState
-	pass
+
+
+func _on_PassThroughDetection_body_entered(body: Node) -> void:
+	collidingWithPlataform = true
+
+func _on_PassThroughDetection_body_exited(body: Node) -> void:
+	collidingWithPlataform = false
