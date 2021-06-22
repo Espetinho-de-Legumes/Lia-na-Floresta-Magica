@@ -9,3 +9,4 @@ data_*/
 
 # Build file
 /build
+*.dll
