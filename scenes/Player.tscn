@@ -1,12 +1,50 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/spritesheets/lia_spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 31.6915 )
+extents = Vector2( 10, 22 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 31.9999 )
+extents = Vector2( 10, 22 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Jump"
+
+[sub_resource type="Animation" id=4]
+resource_name = "Moving"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 rotation = 0.00246024
@@ -18,29 +56,31 @@ friction = -1500.0
 jumpForce = -480.0
 jumpSustain = 170.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -16.0
-margin_top = -32.0
-margin_right = 16.0
-margin_bottom = 32.0
-mouse_filter = 2
-input_pass_on_modal_close_click = false
-color = Color( 0.0588235, 0.133333, 0.941176, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.0615062, -24.759 )
+texture = ExtResource( 2 )
+hframes = 16
+frame = 4
 
 [node name="CollisionArea" type="CollisionShape2D" parent="."]
-self_modulate = Color( 0.0823529, 0.945098, 0.0745098, 1 )
+visible = false
+position = Vector2( -0.0541255, -21.7879 )
 shape = SubResource( 1 )
 
 [node name="PassThroughDetection" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PassThroughDetection"]
-position = Vector2( 0.0196819, 7.99998 )
+modulate = Color( 0.823529, 0.909804, 0.0784314, 1 )
+position = Vector2( 0, -15.846 )
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 3 )
+anims/Jump = SubResource( 5 )
+anims/Moving = SubResource( 4 )
 
 [connection signal="body_entered" from="PassThroughDetection" to="." method="_on_PassThroughDetection_body_entered"]
 [connection signal="body_exited" from="PassThroughDetection" to="." method="_on_PassThroughDetection_body_exited"]
