@@ -6,6 +6,9 @@ enum {
 	JUMP
 }
 
+onready var animationTree: AnimationTree = get_node("AnimationTree")
+onready var sprite: Sprite = get_node("Sprite")
+
 export (float) var maxSpeed = 340.0
 export (float) var acceleration = 35.0
 export (float) var friction = -20.0
@@ -21,6 +24,10 @@ var directionInput := Vector2.ZERO
 var currentState:int = IDLE
 var prevState:float = IDLE
 var collidingWithPlataform = false
+
+func _ready() -> void:
+	animationTree.set("parameters/ground_air_state/current", 0)
+	animationTree.set("parameters/on_ground/current", 0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	basicInputs()
@@ -41,11 +48,13 @@ func _physics_process(delta: float) -> void:
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):
 		directionInput.x = 1
+		sprite.flip_h = false
 		
 		if friction > 0:
 			friction *= -1
 	elif Input.is_action_pressed("left"):
 		directionInput.x = -1
+		sprite.flip_h = true
 		
 		if friction < 0:
 			friction *= -1
@@ -72,6 +81,8 @@ func move() -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func handleIdleState(delta: float) -> void:
+	animationTree.set("parameters/ground_air_state/current", 0)
+	animationTree.set("parameters/on_ground/current", 0)
 	desacelerar(delta)
 	
 	if directionInput.x > 0 or directionInput.x < 0:
@@ -102,6 +113,9 @@ func passThrough() -> void:
 	set_collision_mask_bit(1, false)
 
 func handleRunState(delta: float) -> void:
+	animationTree.set("parameters/ground_air_state/current", 0)
+	animationTree.set("parameters/on_ground/current", 1)
+	
 	if directionInput.x > 0 || directionInput.x < 0:
 		acelerar(delta)
 	else:
@@ -136,6 +150,8 @@ func canJump() -> bool:
 
 func handleJumpState(delta: float) -> void:
 	if hasJumped == false:
+		animationTree.set("parameters/ground_air_state/current", 1)
+		animationTree.set("parameters/on_air/current", 0)
 		hasJumped = true
 		velocity.y = jumpForce
 		return
@@ -156,6 +172,9 @@ func handleJumpState(delta: float) -> void:
 			acelerar(delta)
 		else:
 			desacelerar(delta)
+	
+	if velocity.y > 0:
+		animationTree.set("parameters/on_air/current", 1)
 
 func changeState(newState: int) -> void:
 	if currentState != newState:
