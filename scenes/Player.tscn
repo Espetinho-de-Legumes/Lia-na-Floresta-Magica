@@ -1,17 +1,32 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/spritesheets/lia_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/spritesheets/lia-spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 22 )
+extents = Vector2( 8, 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 22 )
+extents = Vector2( 8, 14 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "Idle"
-length = 0.5
+resource_name = "Falling"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 19, 20, 21 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -20,18 +35,29 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "Jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 17, 18 ]
+}
 
-[sub_resource type="Animation" id=4]
-resource_name = "Moving"
-length = 0.5
+[sub_resource type="Animation" id=6]
+length = 0.9
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -40,47 +66,110 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7, 8 ]
+"values": [ 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Falling"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeTransition" id=11]
+input_count = 2
+input_0/name = "on_ground"
+input_0/auto_advance = false
+input_1/name = "on_air"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=12]
+input_count = 2
+input_0/name = "jump"
+input_0/auto_advance = false
+input_1/name = "falling"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=13]
+input_count = 2
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "walk"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=14]
+graph_offset = Vector2( -764.3, 0 )
+nodes/Animation/node = SubResource( 8 )
+nodes/Animation/position = Vector2( -300, 120 )
+"nodes/Animation 2/node" = SubResource( 7 )
+"nodes/Animation 2/position" = Vector2( -300, 300 )
+nodes/Falling/node = SubResource( 9 )
+nodes/Falling/position = Vector2( -300, 660 )
+nodes/Jump/node = SubResource( 10 )
+nodes/Jump/position = Vector2( -300, 500 )
+nodes/ground_air_state/node = SubResource( 11 )
+nodes/ground_air_state/position = Vector2( 180, 340 )
+nodes/on_air/node = SubResource( 12 )
+nodes/on_air/position = Vector2( -40, 460 )
+nodes/on_ground/node = SubResource( 13 )
+nodes/on_ground/position = Vector2( -60, 280 )
+nodes/output/position = Vector2( 440, 380 )
+node_connections = [ "output", 0, "ground_air_state", "on_air", 0, "Jump", "on_air", 1, "Falling", "on_ground", 0, "Animation", "on_ground", 1, "Animation 2", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air" ]
 
 [node name="Player" type="KinematicBody2D"]
 rotation = 0.00246024
 scale = Vector2( 0.999995, 1.00973 )
 collision_mask = 10
 script = ExtResource( 1 )
-acceleration = 1300.0
-friction = -1500.0
-jumpForce = -480.0
-jumpSustain = 170.0
+maxSpeed = 200.0
+acceleration = 800.0
+friction = -850.0
+jumpForce = -370.0
+jumpSustain = 200.0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.0615062, -24.759 )
 texture = ExtResource( 2 )
-hframes = 16
-frame = 4
+hframes = 5
+vframes = 5
+frame = 3
 
 [node name="CollisionArea" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -0.0541255, -21.7879 )
+position = Vector2( 0.0049205, 1.98072 )
 shape = SubResource( 1 )
 
 [node name="PassThroughDetection" type="Area2D" parent="."]
-visible = false
+position = Vector2( 9.31323e-10, 5.926 )
 collision_layer = 0
 collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PassThroughDetection"]
 modulate = Color( 0.823529, 0.909804, 0.0784314, 1 )
-position = Vector2( 0, -15.846 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 3 )
+anims/Falling = SubResource( 3 )
+anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )
-anims/Moving = SubResource( 4 )
+anims/Walk = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/ground_air_state/current = 0
+parameters/on_air/current = 0
+parameters/on_ground/current = 0
 
 [connection signal="body_entered" from="PassThroughDetection" to="." method="_on_PassThroughDetection_body_entered"]
 [connection signal="body_exited" from="PassThroughDetection" to="." method="_on_PassThroughDetection_body_exited"]
