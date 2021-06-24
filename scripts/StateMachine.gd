@@ -54,5 +54,5 @@ func changeState(newState: String) -> void:
 	
 	currentState.exit()
 	currentState = statesMap[newState]
-	emit_signal("state_changed", currentState)
+	# emit_signal("state_changed", currentState)
 	currentState.enter()

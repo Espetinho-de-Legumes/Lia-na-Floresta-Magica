@@ -73,7 +73,6 @@ func move() -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	if velocity.y > 0 && velocity.y < 0.5:
-		print("FOI")
 		velocity.y = 0
 
 func desacelerar(delta: float) -> void:
@@ -117,3 +116,11 @@ func passThrough() -> void:
 
 func get_name() -> String:
 	return "idle"
+
+
+func _on_PassThroughDetection_body_entered(body: Node) -> void:
+	collidingWithPlataform = true
+
+
+func _on_PassThroughDetection_body_exited(body: Node) -> void:
+	collidingWithPlataform = false

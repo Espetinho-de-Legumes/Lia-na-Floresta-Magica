@@ -15,7 +15,8 @@ func update(delta: float) -> void:
 		# emit_signal("finished", "jump")
 	# elif self.actor.velocity.y > 0:
 		# emit_signal("finished", "falling")
-	pass
+	if self.actor.hasFalledThrough:
+		emit_signal("finished", "falling")
 
 func physicsUpdate(delta: float) -> void:
 	self.actor.applyGravity(delta)

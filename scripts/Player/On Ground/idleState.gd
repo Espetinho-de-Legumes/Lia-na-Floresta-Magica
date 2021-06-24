@@ -19,7 +19,7 @@ func update(delta: float) -> void:
 	if self.actor.canJump():
 		emit_signal("finished", "jump")
 	
-	# fallThroughPlataform()
+	self.actor.fallThroughPlataform()
 
 func physicsUpdate(delta:float) -> void:
 	.physicsUpdate(delta)
