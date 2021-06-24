@@ -12,18 +12,25 @@ extends KinematicBody2D
 
 signal state_changed(currentState)
 
-export(Array, String, FILE, "*.gd") var listOfStates
+# export(Array, String, FILE, "*gd") var listOfStates setget setList
 
 var statesMap = {}
-var currentState = null
-var isActive = false setget setActive
+var currentState:Node = null
+var isActive:bool = false setget setActive
+var listOfStates = [
+	"res://scripts/Player/On Ground/idleState.gd",
+	"res://scripts/Player/On Ground/walkState.gd",
+	"res://scripts/Player/On Air/jumpState.gd",
+	"res://scripts/Player/On Air/fallingState.gd"
+]
 
 func _ready() -> void:
 	var i:int = 0
-	var initialState: Node = null
+	var initialState = null
 	
 	for state in listOfStates:
-		var instanceOfState:Node = state.new(self)
+		var instanceOfState = load(state).new()
+		instanceOfState.setActor(self)
 		instanceOfState.connect("finished", self, "changeState")
 		
 		if i == 0:
@@ -36,8 +43,8 @@ func _ready() -> void:
 
 func init(startState: Node) -> void:
 	setActive(true)
-	# currentState = get_node(startState)
-	currentState.start()
+	currentState = startState
+	currentState.enter()
 
 func setActive(value: bool) -> void:
 	isActive = value
@@ -57,10 +64,13 @@ func _physics_process(delta: float) -> void:
 	currentState.physicsUpdate(delta)
 
 func changeState(newState: String) -> void:
-	if !isActive:
+	if !isActive || currentState.get_name() == newState:
 		return
 	
 	currentState.exit()
 	currentState = statesMap[newState]
 	emit_signal("state_changed", currentState)
 	currentState.enter()
+
+func setList(newList) -> void:
+	listOfStates = newList

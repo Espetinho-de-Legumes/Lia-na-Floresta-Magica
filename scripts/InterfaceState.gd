@@ -5,9 +5,9 @@ extends Node
 
 signal finished(nextState)
 
-var actor
+var actor:KinematicBody2D = null
 
-func _init(actor) -> void:
+func setActor(actor: KinematicBody2D) -> void:
 	self.actor = actor
 
 func enter() -> void:
@@ -24,3 +24,6 @@ func update(delta: float) -> void:
 
 func physicsUpdate(delta: float) -> void:
 	return
+
+func get_name() -> String:
+	return "State"

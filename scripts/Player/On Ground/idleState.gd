@@ -1,16 +1,29 @@
-extends "res://scripts/InterfaceState.gd"
+extends "res://scripts/Player/On Ground/onGround.gd"
+# class_name idle
+
 
 func enter() -> void:
-	return
-
-func exit() -> void:
-	return
-
-func handleInput(event: InputEvent) -> void:
-	return
+	.enter()
+	
+	if self.actor.animationTree != null:
+		self.actor.animationTree.set("parameters/on_ground/current", 0)
+	
+	print("IDLE State")
 
 func update(delta: float) -> void:
-	return
+	.update(delta)
+	
+	if self.actor.directionInput.x > 0 || self.actor.directionInput.x < 0:
+		emit_signal("finished", "walk")
+	
+	if self.actor.canJump():
+		emit_signal("finished", "jump")
+	
+	# fallThroughPlataform()
 
-func physicsUpdate(delta: float) -> void:
-	return
+func physicsUpdate(delta:float) -> void:
+	.physicsUpdate(delta)
+	self.actor.desacelerar(delta)
+
+func get_name() -> String:
+	return "idle"
