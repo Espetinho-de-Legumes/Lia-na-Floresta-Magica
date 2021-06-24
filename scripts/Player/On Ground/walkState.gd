@@ -8,7 +8,7 @@ func enter() -> void:
 	if self.actor.animationTree != null:
 		self.actor.animationTree.set("parameters/on_ground/current", 1)
 	
-	print("Walk State")
+	# print("Walk State")
 
 func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)

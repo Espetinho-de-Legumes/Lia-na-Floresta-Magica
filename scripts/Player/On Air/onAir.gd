@@ -6,7 +6,7 @@ func enter() -> void:
 	if self.actor.animationTree != null:
 		self.actor.animationTree.set("parameters/ground_air_state/current", 1)
 	
-	print("On Air State")
+	# print("On Air State")
 
 func handleInput(event: InputEvent) -> void:
 	self.actor.basicInputs()

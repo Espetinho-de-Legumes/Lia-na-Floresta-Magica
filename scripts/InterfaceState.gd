@@ -2,6 +2,7 @@
 Interface para todos os estados que um Character pode ter
 """
 extends Node
+class_name InterfaceState
 
 signal finished(nextState)
 

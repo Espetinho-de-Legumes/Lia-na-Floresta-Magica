@@ -8,7 +8,7 @@ func enter() -> void:
 	if self.actor.animationTree != null:
 		self.actor.animationTree.set("parameters/on_ground/current", 0)
 	
-	print("IDLE State")
+	# print("IDLE State")
 
 func update(delta: float) -> void:
 	.update(delta)

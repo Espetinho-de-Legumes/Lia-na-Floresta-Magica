@@ -1,4 +1,4 @@
-extends "res://scripts/StateMachine.gd"
+extends KinematicBody2D
 
 onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var sprite: Sprite = get_node("Sprite")
@@ -14,6 +14,30 @@ var velocity := Vector2.ZERO
 var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
+
+var StateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
+
+func _ready() -> void:
+	var listOfStates:Array = [
+	"res://scripts/Player/On Ground/idleState.gd",
+	"res://scripts/Player/On Ground/walkState.gd",
+	"res://scripts/Player/On Air/jumpState.gd",
+	"res://scripts/Player/On Air/fallingState.gd"
+	]
+	
+	StateMachine.init(self, listOfStates)
+
+func _unhandled_input(event: InputEvent) -> void:
+	StateMachine.currentState.handleInput(event)
+
+func _process(delta: float) -> void:
+	StateMachine.currentState.update(delta)
+
+func _physics_process(delta: float) -> void:
+	StateMachine.currentState.physicsUpdate(delta)
+	
+	#if velocity.y > 0:
+		#print(velocity.y)
 
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):
@@ -47,6 +71,10 @@ func applyGravity(delta: float) -> void:
 
 func move() -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if velocity.y > 0 && velocity.y < 0.5:
+		print("FOI")
+		velocity.y = 0
 
 func desacelerar(delta: float) -> void:
 	velocity.x += friction * delta

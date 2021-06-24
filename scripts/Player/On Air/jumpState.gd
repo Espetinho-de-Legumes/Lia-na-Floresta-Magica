@@ -11,7 +11,8 @@ func enter() -> void:
 	
 	self.actor.velocity.y = self.actor.jumpForce
 	inAirTime = 0.0
-	print("Jumping State")
+	
+	# print("Jumping State")
 
 func physicsUpdate(delta) -> void:
 	.physicsUpdate(delta)

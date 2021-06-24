@@ -8,7 +8,7 @@ func enter() -> void:
 	if self.actor.animationTree != null:
 		self.actor.animationTree.set("parameters/on_air/current", 1)
 	
-	print("Falling State")
+	# print("Falling State")
 
 func get_name() -> String:
 	return "falling"
