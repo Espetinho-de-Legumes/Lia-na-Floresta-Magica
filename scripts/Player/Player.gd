@@ -3,12 +3,12 @@ extends KinematicBody2D
 onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var sprite: Sprite = get_node("Sprite")
 
-export (float) var maxSpeed = 180.0
-export (float) var acceleration = 600.0
-export (float) var friction = -1000.0
-export (float) var gravity = 2600.0 # pixel/sec
-export (float) var jumpForce = -300.0
-export (float) var jumpSustain = 220.0 # milisegundos
+export (int) var maxSpeed = 180
+export (int) var acceleration = 600
+export (int) var friction = -1000
+export (int) var gravity = 2600 # pixel/sec
+export (int) var jumpForce = -300
+export (int) var jumpSustain = 220 # milisegundos
 
 var velocity := Vector2.ZERO
 var directionInput := Vector2.ZERO
