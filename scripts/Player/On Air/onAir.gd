@@ -19,11 +19,11 @@ func update(delta: float) -> void:
 			emit_signal("finished", "walk")
 
 func physicsUpdate(delta: float) -> void:
-	self.actor.applyGravity(delta)
+	# self.actor.applyGravity(delta)
 	
 	if self.actor.directionInput.x > 0 || self.actor.directionInput.x < 0:
 		self.actor.acelerar(delta)
 	else:
 		self.actor.desacelerar(delta)
 	
-	self.actor.move()
+	# self.actor.move()

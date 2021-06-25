@@ -34,10 +34,9 @@ func _process(delta: float) -> void:
 	StateMachine.currentState.update(delta)
 
 func _physics_process(delta: float) -> void:
+	applyGravity(delta)
 	StateMachine.currentState.physicsUpdate(delta)
-	
-	#if velocity.y > 0:
-		#print(velocity.y)
+	move()
 
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):
@@ -80,9 +79,6 @@ func desacelerar(delta: float) -> void:
 	
 	if (friction < 0 && velocity.x <= 0) || (friction > 0 && velocity.x >= 0):
 		velocity.x = 0
-		
-		# if is_on_floor() && currentState != IDLE:
-			# emit_signal("finished")
 
 func acelerar(delta: float) -> void:
 	velocity.x += directionInput.x * acceleration * delta

@@ -15,11 +15,6 @@ func update(delta: float) -> void:
 	
 	if self.actor.directionInput.x > 0 || self.actor.directionInput.x < 0:
 		emit_signal("finished", "walk")
-	
-	if self.actor.canJump():
-		emit_signal("finished", "jump")
-	
-	self.actor.fallThroughPlataform()
 
 func physicsUpdate(delta:float) -> void:
 	.physicsUpdate(delta)

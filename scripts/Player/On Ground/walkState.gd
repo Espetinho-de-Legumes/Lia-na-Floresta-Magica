@@ -19,11 +19,6 @@ func physicsUpdate(delta: float) -> void:
 	
 	if self.actor.velocity.x == 0:
 		emit_signal("finished", "idle")
-	
-	if self.actor.canJump():
-		emit_signal("finished", "jump")
-	
-	self.actor.fallThroughPlataform()
 
 func get_name() -> String:
 	return "walk"
