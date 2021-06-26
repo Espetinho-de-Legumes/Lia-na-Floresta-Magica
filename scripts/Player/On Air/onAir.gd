@@ -8,6 +8,9 @@ func enter() -> void:
 	
 	# print("On Air State")
 
+func exit() -> void:
+	self.actor.directionInput.y = 0
+
 func handleInput(event: InputEvent) -> void:
 	self.actor.basicInputs()
 

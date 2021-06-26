@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var sprite: Sprite = get_node("Sprite")
+onready var jumpSFX:AudioStreamPlayer2D = get_node("SFX/jumpSFX")
 
 export (int) var maxSpeed = 180
 export (int) var acceleration = 600
@@ -62,8 +63,8 @@ func basicInputs() -> void:
 	if Input.is_action_pressed("Fall"):
 		directionInput.y = 1
 	
-	if Input.is_action_just_released("jump"):
-		directionInput.y = 0
+	# if Input.is_action_just_released("jump"):
+		# directionInput.y = 0
 
 func applyGravity(delta: float) -> void:
 	velocity.y += gravity * delta
@@ -91,6 +92,7 @@ func acelerar(delta: float) -> void:
 			velocity.x = -maxSpeed
 
 func canJump() -> bool:
+	
 	return directionInput.y < 0 && is_on_floor()
 
 func fallThroughPlataform() -> void:

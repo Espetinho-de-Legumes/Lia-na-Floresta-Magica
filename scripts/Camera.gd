@@ -11,5 +11,6 @@ func _get_configuration_warning() -> String:
 	return ""
 
 func _process(delta: float) -> void:
-	var Alvo:KinematicBody2D = get_node(alvo_path)
-	position = Alvo.get_position()
+	if alvo_path != null:
+		var Alvo:KinematicBody2D = get_node(alvo_path)
+		position = Alvo.get_position()
