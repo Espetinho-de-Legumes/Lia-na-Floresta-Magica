@@ -1,8 +1,13 @@
 tool
 extends Camera2D
 
-export(NodePath) var alvo_path
+export(NodePath) onready var alvo_path
+export var offSet:int = 140
 
+var Alvo: Player
+
+func _ready():
+	Alvo = get_node(alvo_path)
 
 func _get_configuration_warning() -> String:
 	if (alvo_path == null):
@@ -10,7 +15,11 @@ func _get_configuration_warning() -> String:
 	
 	return ""
 
-func _process(delta: float) -> void:
-	if alvo_path != null:
-		var Alvo:KinematicBody2D = get_node(alvo_path)
-		position = Alvo.get_position()
+func _physics_process(delta: float) -> void:
+	if Alvo.velocity.x > 0:
+		offSet = 120
+	elif Alvo.velocity.x < 0:
+		offSet = -120
+		
+	position.x = Alvo.get_position().x + offSet
+	position.y = Alvo.get_position().y

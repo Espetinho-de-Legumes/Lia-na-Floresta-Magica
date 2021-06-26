@@ -1,4 +1,6 @@
 extends KinematicBody2D
+class_name Player
+
 
 onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var sprite: Sprite = get_node("Sprite")
@@ -115,6 +117,8 @@ func passThrough() -> void:
 func get_name() -> String:
 	return "idle"
 
+func get_position() -> Vector2:
+	return position
 
 func _on_PassThroughDetection_body_entered(body: Node) -> void:
 	collidingWithPlataform = true
