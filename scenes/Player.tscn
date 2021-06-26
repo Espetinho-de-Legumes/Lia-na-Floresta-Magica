@@ -8,7 +8,7 @@
 extents = Vector2( 8, 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 14 )
+extents = Vector2( 8, 12 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Falling"
@@ -123,7 +123,7 @@ nodes/on_air/position = Vector2( -40, 460 )
 nodes/on_ground/node = SubResource( 13 )
 nodes/on_ground/position = Vector2( -60, 280 )
 nodes/output/position = Vector2( 440, 380 )
-node_connections = [ "output", 0, "ground_air_state", "on_ground", 0, "Idle Animation", "on_ground", 1, "Walk Animation", "on_air", 0, "Jump Animation", "on_air", 1, "Falling Animation", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air" ]
+node_connections = [ "output", 0, "ground_air_state", "on_air", 0, "Jump Animation", "on_air", 1, "Falling Animation", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air", "on_ground", 0, "Idle Animation", "on_ground", 1, "Walk Animation" ]
 
 [node name="Player" type="KinematicBody2D"]
 rotation = 0.00246024
@@ -135,13 +135,13 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 5
-frame = 6
+frame = 5
 
 [node name="CollisionArea" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="PassThroughDetection" type="Area2D" parent="."]
-position = Vector2( 9.31323e-10, 5.926 )
+position = Vector2( 0.0147615, 5.94216 )
 collision_layer = 0
 collision_mask = 2
 __meta__ = {
@@ -150,6 +150,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PassThroughDetection"]
 modulate = Color( 0.823529, 0.909804, 0.0784314, 1 )
+position = Vector2( -0.00246025, -0.990361 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

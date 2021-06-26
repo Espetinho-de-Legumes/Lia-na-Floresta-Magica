@@ -36,3 +36,4 @@ margin_bottom = 44.0
 text = "Sair"
 
 [connection signal="pressed" from="Opcoes/Voltar ao Jogo" to="." method="_on_Voltar_ao_Jogo_pressed"]
+[connection signal="pressed" from="Opcoes/Sair" to="." method="_on_Sair_pressed"]

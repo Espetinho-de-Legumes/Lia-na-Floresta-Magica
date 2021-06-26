@@ -18,3 +18,7 @@ func _on_Voltar_ao_Jogo_pressed() -> void:
 func setVisible(isVisible:bool) -> void:
 	for node in get_children():
 		node.visible = isVisible
+
+
+func _on_Sair_pressed():
+	get_tree().quit()
