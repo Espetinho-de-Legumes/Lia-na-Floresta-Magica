@@ -1,6 +1,8 @@
 extends "res://scripts/Player/On Air/onAir.gd"
 # class_name jumping
 
+onready var jumpSFX = self.actor.get_node("SFX/jumpSFX")
+
 var inAirTime: float = 0.0
 
 func enter() -> void:
@@ -11,6 +13,9 @@ func enter() -> void:
 	
 	self.actor.velocity.y = self.actor.jumpForce
 	inAirTime = 0.0
+	
+	print(jumpSFX)
+	# self.actor.jumpSFX.play()
 	
 	# print("Jumping State")
 
