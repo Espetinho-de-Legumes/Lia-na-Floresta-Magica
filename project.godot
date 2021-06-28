@@ -39,7 +39,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PauseScene="*res://scenes/Pause Scene.tscn"
+PauseScene="*res://autoloads/Pause Scene.tscn"
+GlobalAudioManager="*res://autoloads/GlobalAudioManager.tscn"
 
 [debug]
 
@@ -87,6 +88,11 @@ pause={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
+use={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -95,6 +101,7 @@ pause={
 2d_physics/layer_3="Paredes"
 2d_physics/layer_4="Chao"
 2d_physics/layer_5="Enemies"
+2d_physics/layer_6="NPC"
 
 [physics]
 

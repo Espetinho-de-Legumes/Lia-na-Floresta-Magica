@@ -8,7 +8,14 @@ func enter() -> void:
 	if self.actor.animationTree != null:
 		self.actor.animationTree.set("parameters/on_ground/current", 1)
 	
+	self.actor.walkSFX.play()
+	
 	# print("Walk State")
+
+func exit() -> void:
+	.exit()
+	
+	self.actor.walkSFX.stop()
 
 func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)

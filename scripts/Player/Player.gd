@@ -1,10 +1,11 @@
 extends KinematicBody2D
 class_name Player
 
-
 onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var sprite: Sprite = get_node("Sprite")
-onready var jumpSFX:AudioStreamPlayer2D = get_node("SFX/jumpSFX")
+onready var jumpSFX:AudioStreamPlayer = get_node("SFX/jumpSFX")
+onready var walkSFX:AudioStreamPlayer = get_node("SFX/walkSFX")
+onready var landingSFX:AudioStreamPlayer = get_node("SFX/landingSFX")
 
 export (int) var maxSpeed = 180
 export (int) var acceleration = 600
@@ -13,12 +14,12 @@ export (int) var gravity = 2600 # pixel/sec
 export (int) var jumpForce = -300
 export (int) var jumpSustain = 220 # milisegundos
 
-var velocity := Vector2.ZERO
+var velocity := Vector2.ZERO setget set_velocity, get_velocity
 var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
 
-var StateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
+var playerStateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
 
 func _ready() -> void:
 	var listOfStates:Array = [
@@ -28,17 +29,17 @@ func _ready() -> void:
 	"res://scripts/Player/On Air/fallingState.gd"
 	]
 	
-	StateMachine.init(self, listOfStates)
+	playerStateMachine.init(self, listOfStates)
 
 func _unhandled_input(event: InputEvent) -> void:
-	StateMachine.currentState.handleInput(event)
+	playerStateMachine.currentState.handleInput(event)
 
 func _process(delta: float) -> void:
-	StateMachine.currentState.update(delta)
+	playerStateMachine.currentState.update(delta)
 
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
-	StateMachine.currentState.physicsUpdate(delta)
+	playerStateMachine.currentState.physicsUpdate(delta)
 	move()
 
 func basicInputs() -> void:
@@ -113,6 +114,18 @@ func canFallThrough() -> bool:
 
 func passThrough() -> void:
 	set_collision_mask_bit(1, false)
+
+func setActive(newValue: bool) -> void:
+	playerStateMachine.changeState("idle")
+	set_process(newValue)
+	set_physics_process(newValue)
+	set_process_unhandled_input(newValue)
+
+func set_velocity(newVelocity: Vector2) -> void:
+	velocity = newVelocity
+
+func get_velocity() -> Vector2:
+	return velocity
 
 func get_name() -> String:
 	return "idle"

@@ -6,10 +6,10 @@ func _ready():
 
 
 func _on_Jogar_pressed():
-	var ERROR = get_tree().change_scene("res://scenes/Level 1.tscn")
+	var ERROR = get_tree().change_scene("res://scenes/Levels/Level 1.tscn")
 	
 	if ERROR != OK:
-		print(ERROR)
+		print("ERROR")
 
 
 func _on_Sair_pressed():

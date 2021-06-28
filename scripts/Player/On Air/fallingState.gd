@@ -9,6 +9,10 @@ func enter() -> void:
 		self.actor.animationTree.set("parameters/on_air/current", 1)
 	
 	# print("Falling State")
+func exit() -> void:
+	.exit()
+	
+	self.actor.landingSFX.play()
 
 func get_name() -> String:
 	return "falling"
