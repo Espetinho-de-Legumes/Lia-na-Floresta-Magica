@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends Area2D
 
 export(PackedScene) var nextLevel
 
@@ -9,6 +9,6 @@ func _get_configuration_warning() -> String:
 	
 	return ""
 
-
-func _on_EndLevelTrigger_body_entered(body):
-	get_tree().change_scene_to(nextLevel)
+func _process(delta: float) -> void:
+	if len(get_overlapping_bodies()) > 0:
+		get_tree().change_scene_to(nextLevel)

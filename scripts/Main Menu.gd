@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	pass
+	GlobalAudioManager.setAudio("MainTheme")
 
 
 func _on_Jogar_pressed():

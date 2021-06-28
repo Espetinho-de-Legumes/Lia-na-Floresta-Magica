@@ -7,7 +7,6 @@ onready var dialogueContainer: Control = get_node("dialogueContainer")
 onready var NameLabel: Label = get_node("dialogueContainer/DialogBox/Name")
 onready var TextBox: RichTextLabel = get_node("dialogueContainer/DialogBox/Text")
 onready var endTimer: Timer = get_node("EndTimer")
-onready var characterSpeed: Timer = get_node("CharacterSpeed")
 
 var listOfDialogs = []
 var currentIndex: int = -1
@@ -23,7 +22,6 @@ func _get_configuration_warning() -> String:
 func _ready() -> void:
 	setActive(false)
 	listOfDialogs = loadDialog()
-	pass
 
 func play() -> void:
 	if isActive:
@@ -35,8 +33,9 @@ func play() -> void:
 	nextLine()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("use") && isActive:
-		nextLine()
+	if !Engine.editor_hint:
+		if event.is_action_pressed("use") && isActive:
+			nextLine()
 
 func loadDialog():
 	var file = File.new()
