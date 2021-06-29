@@ -11,4 +11,5 @@ func _get_configuration_warning() -> String:
 
 func _process(delta: float) -> void:
 	if len(get_overlapping_bodies()) > 0:
+		GameGlobalManager.Level1Data.hasFinishedLevel = true
 		get_tree().change_scene_to(nextLevel)

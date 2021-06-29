@@ -1,17 +1,19 @@
 tool
-extends CanvasLayer
+extends Node2D
 
 export(String, FILE, "*json") var dialogFile
 
-onready var dialogueContainer: Control = get_node("dialogueContainer")
-onready var NameLabel: Label = get_node("dialogueContainer/DialogBox/Name")
-onready var TextBox: RichTextLabel = get_node("dialogueContainer/DialogBox/Text")
+onready var dialogueContainer: Control = get_node("CanvasLayer/DialogContainer")
+onready var NameLabel: Label = get_node("CanvasLayer/DialogContainer/DialogBox/Name")
+onready var TextBox: RichTextLabel = get_node("CanvasLayer/DialogContainer/DialogBox/Text")
 onready var endTimer: Timer = get_node("EndTimer")
+onready var questMark = get_node("QuestMark")
+# onready var tween: Tween = get_node("Tween")
 
 var listOfDialogs = []
 var currentIndex: int = -1
 var currentCharacter: int = -1
-var isActive = false setget setActive
+var isActive: bool = false setget setActive
 
 func _get_configuration_warning() -> String:
 	if (dialogFile == null):
@@ -22,6 +24,10 @@ func _get_configuration_warning() -> String:
 func _ready() -> void:
 	setActive(false)
 	listOfDialogs = loadDialog()
+	questMark.visible = true
+	
+	# tween.interpolate_property(questMark, "rect_position:y", Vector2.ZERO, Vector2(0, 200), 10, Tween.TRANS_BOUNCE, Tween.EASE_IN)
+	# tween.start()
 
 func play() -> void:
 	if isActive:
@@ -69,3 +75,4 @@ func _on_EndTimer_timeout() -> void:
 	currentIndex = -1
 	setActive(false)
 	setPlayerActive(true)
+	questMark.visible = false

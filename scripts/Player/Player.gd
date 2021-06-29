@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 onready var animationTree: AnimationTree = get_node("AnimationTree")
-onready var sprite: Sprite = get_node("Sprite")
+onready var body: Sprite = get_node("Body")
 onready var jumpSFX:AudioStreamPlayer = get_node("SFX/jumpSFX")
 onready var walkSFX:AudioStreamPlayer = get_node("SFX/walkSFX")
 onready var landingSFX:AudioStreamPlayer = get_node("SFX/landingSFX")
@@ -45,13 +45,13 @@ func _physics_process(delta: float) -> void:
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):
 		directionInput.x = 1
-		sprite.flip_h = false
+		body.flip_h = false
 		
 		if friction > 0:
 			friction *= -1
 	elif Input.is_action_pressed("left"):
 		directionInput.x = -1
-		sprite.flip_h = true
+		body.flip_h = true
 		
 		if friction < 0:
 			friction *= -1

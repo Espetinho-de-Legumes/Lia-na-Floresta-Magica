@@ -39,8 +39,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
+GlobalAudioManager="*res://autoloads/AudioGlobalManager.tscn"
 PauseScene="*res://autoloads/Pause Scene.tscn"
-GlobalAudioManager="*res://autoloads/GlobalAudioManager.tscn"
+GameGlobalManager="*res://autoloads/GameGlobalManager.tscn"
 
 [debug]
 

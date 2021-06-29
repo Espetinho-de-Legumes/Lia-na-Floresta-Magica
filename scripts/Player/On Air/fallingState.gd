@@ -12,7 +12,7 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 	
-	self.actor.landingSFX.play()
+	# self.actor.landingSFX.play()
 
 func get_name() -> String:
 	return "falling"
