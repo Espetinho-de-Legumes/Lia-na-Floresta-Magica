@@ -18,10 +18,10 @@
 [ext_resource path="res://assets/images/cogumelo-2.PNG" type="Texture" id=18]
 [ext_resource path="res://assets/images/bloco-2.PNG" type="Texture" id=19]
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.27, 248 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource( 15 )
@@ -35,11 +35,11 @@ alvo_path = NodePath("../Characters/Player")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_limit_end = Vector2( 2000, 270 )
 
-[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Bg Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 1079, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Bg Layer1"]
 position = Vector2( 0, -270 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 14 )
@@ -165,7 +165,7 @@ __meta__ = {
 nextLevel = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/EndLevelTrigger"]
-shape = SubResource( 19 )
+shape = SubResource( 1 )
 
 [node name="StartPoint" type="Area2D" parent="AreaTriggers"]
 position = Vector2( 344, 216 )
@@ -174,7 +174,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/StartPoint"]
-shape = SubResource( 20 )
+shape = SubResource( 2 )
 
 [node name="EndPoint" type="Area2D" parent="AreaTriggers"]
 position = Vector2( 1736, 120 )
@@ -183,6 +183,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/EndPoint"]
-shape = SubResource( 20 )
+shape = SubResource( 2 )
 
 [editable path="Characters/Anna/DialogueSystem"]
