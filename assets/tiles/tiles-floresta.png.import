@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test-tile-set.png-20e2fd1bd98112352a26ee2e993f2906.stex"
+path="res://.import/tiles-floresta.png-83011955e57e1a55fead1c6aa3075f0c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/test-tile-set.png"
-dest_files=[ "res://.import/test-tile-set.png-20e2fd1bd98112352a26ee2e993f2906.stex" ]
+source_file="res://assets/tiles/tiles-floresta.png"
+dest_files=[ "res://.import/tiles-floresta.png-83011955e57e1a55fead1c6aa3075f0c.stex" ]
 
 [params]
 
