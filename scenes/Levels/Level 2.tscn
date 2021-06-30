@@ -119,7 +119,7 @@ position = Vector2( 584, 182 )
 scale = Vector2( 0.158058, 0.158058 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Player" parent="Characters" instance=ExtResource( 2 )]
