@@ -35,11 +35,11 @@ alvo_path = NodePath("../Characters/Player")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_limit_end = Vector2( 2000, 270 )
 
-[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Bg Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 1079, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Bg Layer1"]
 position = Vector2( 0, -270 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 14 )

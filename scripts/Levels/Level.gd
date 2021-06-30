@@ -11,3 +11,6 @@ func _ready() -> void:
 		player.position = startPoint.position
 	else:
 		player.position = endPoint.position
+	
+	if GlobalAudioManager.currentPlaying.name != "MainTheme":
+		GlobalAudioManager.setAudio("MainTheme")
