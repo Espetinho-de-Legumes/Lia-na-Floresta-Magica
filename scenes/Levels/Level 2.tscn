@@ -11,32 +11,26 @@
 [ext_resource path="res://assets/tiles/behindWall.tres" type="TileSet" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 265, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 530, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 242, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 265, 242, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 530, 242, 265, 242 )
 
@@ -120,7 +114,7 @@ position = Vector2( 584, 182 )
 scale = Vector2( 0.158058, 0.158058 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 1
+frame = 5
 playing = true
 
 [node name="Player" parent="Characters" instance=ExtResource( 2 )]
