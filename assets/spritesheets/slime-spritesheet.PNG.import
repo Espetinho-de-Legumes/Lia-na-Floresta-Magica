@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IMG_0877.PNG-8f1bb42685edd5b8e29856d95f631c5b.stex"
+path="res://.import/slime-spritesheet.PNG-d07da90e23c7faf0197a24f2acb0a7d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/IMG_0877.PNG"
-dest_files=[ "res://.import/IMG_0877.PNG-8f1bb42685edd5b8e29856d95f631c5b.stex" ]
+source_file="res://assets/spritesheets/slime-spritesheet.PNG"
+dest_files=[ "res://.import/slime-spritesheet.PNG-d07da90e23c7faf0197a24f2acb0a7d5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

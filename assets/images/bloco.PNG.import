@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IMG_0879.PNG-36cbc0893f1362e37e4b19cc8da5d97d.stex"
+path="res://.import/bloco.PNG-d45bd175122795dbd5a3a1aad8b1f485.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/IMG_0879.PNG"
-dest_files=[ "res://.import/IMG_0879.PNG-36cbc0893f1362e37e4b19cc8da5d97d.stex" ]
+source_file="res://assets/images/bloco.PNG"
+dest_files=[ "res://.import/bloco.PNG-d45bd175122795dbd5a3a1aad8b1f485.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

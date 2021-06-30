@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://scripts/StateMachine.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Worm",
+"language": "GDScript",
+"path": "res://scripts/enemies/Worm.gd"
 } ]
 _global_script_class_icons={
 "InterfaceState": "",
 "Player": "",
-"StateMachine": ""
+"StateMachine": "",
+"Worm": ""
 }
 
 [application]
@@ -103,6 +109,8 @@ use={
 2d_physics/layer_4="Chao"
 2d_physics/layer_5="Enemies"
 2d_physics/layer_6="NPC"
+2d_physics/layer_7="HitBoxes"
+2d_physics/layer_8="HurtBoxes"
 
 [physics]
 

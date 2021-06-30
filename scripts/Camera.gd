@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 			position.x = player.position.x - offSetValue
 			lastPlayerVelocity = player.get_velocity()
 		else:
-			print(lastPlayerVelocity)
 			if lastPlayerVelocity.x > 0:
 				position.x = player.position.x + offSetValue
 			else:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sunny_land1.png-542236dbb71b80290bc5c64c110f8f3c.stex"
+path="res://.import/bloco-1.PNG-8c0c44dc1f3031d72628a759c63761f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/sunny_land1.png"
-dest_files=[ "res://.import/sunny_land1.png-542236dbb71b80290bc5c64c110f8f3c.stex" ]
+source_file="res://assets/images/bloco-1.PNG"
+dest_files=[ "res://.import/bloco-1.PNG-8c0c44dc1f3031d72628a759c63761f6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

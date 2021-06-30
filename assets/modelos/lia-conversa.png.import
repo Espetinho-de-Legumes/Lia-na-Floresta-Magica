@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/floresta-normal-tileset-test.png-2dc46564c4cd470f8a291c83b8b0d10f.stex"
+path="res://.import/lia-conversa.png-b6d6d00d3289f87f3131c8c75f094f7a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/floresta-normal-tileset-test.png"
-dest_files=[ "res://.import/floresta-normal-tileset-test.png-2dc46564c4cd470f8a291c83b8b0d10f.stex" ]
+source_file="res://assets/modelos/lia-conversa.png"
+dest_files=[ "res://.import/lia-conversa.png-b6d6d00d3289f87f3131c8c75f094f7a.stex" ]
 
 [params]
 

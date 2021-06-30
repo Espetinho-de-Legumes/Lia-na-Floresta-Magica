@@ -100,6 +100,7 @@ func canJump() -> bool:
 
 func fallThroughPlataform() -> void:
 	if hasFalledThrough:
+		# print(collidingWithPlataform)
 		if !collidingWithPlataform:
 			set_collision_mask_bit(1, true)
 			hasFalledThrough = false
