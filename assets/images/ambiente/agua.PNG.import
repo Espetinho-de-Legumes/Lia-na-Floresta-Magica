@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/peso.png-a4bcf5a2ed2bd67ae63bee712c6a1ed3.stex"
+path="res://.import/agua.PNG-0334e048c3c6dd04b5ce2ca030042ea6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/peso.png"
-dest_files=[ "res://.import/peso.png-a4bcf5a2ed2bd67ae63bee712c6a1ed3.stex" ]
+source_file="res://assets/images/ambiente/agua.PNG"
+dest_files=[ "res://.import/agua.PNG-0334e048c3c6dd04b5ce2ca030042ea6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

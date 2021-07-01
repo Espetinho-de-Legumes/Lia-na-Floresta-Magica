@@ -1,55 +1,148 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Main Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/MainTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/menu-principal/Estrela-branca.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/menu-principal/Tela-Lia.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/menu-principal/Tela-linha-pontilhada-branca-pequena.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/menu-principal/Estrela-verde.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/menu-principal/Tela-linha-pontilhada-verde.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+extra_spacing_char = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.462745, 0.760784, 0.380392, 1 )
+[node name="Background" type="Node2D" parent="."]
+
+[node name="tela-lia" type="Sprite" parent="Background"]
+scale = Vector2( 0.375, 0.377778 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="estrela-branca" type="Sprite" parent="Background"]
+position = Vector2( 38, 144 )
+scale = Vector2( 0.313333, 0.313333 )
+texture = ExtResource( 3 )
+
+[node name="estrela-branca2" type="Sprite" parent="Background"]
+position = Vector2( 272, 64 )
+scale = Vector2( 0.313333, 0.313333 )
+texture = ExtResource( 3 )
+
+[node name="estrela-branca3" type="Sprite" parent="Background"]
+position = Vector2( 279, 163 )
+scale = Vector2( 0.211667, 0.211667 )
+texture = ExtResource( 3 )
+
+[node name="estrela-branca4" type="Sprite" parent="Background"]
+position = Vector2( 170, 199 )
+scale = Vector2( 0.313333, 0.313333 )
+texture = ExtResource( 3 )
+
+[node name="estrela-branca5" type="Sprite" parent="Background"]
+position = Vector2( 326, 264 )
+scale = Vector2( 0.313333, 0.313333 )
+texture = ExtResource( 3 )
+
+[node name="estrela-branca6" type="Sprite" parent="Background"]
+position = Vector2( 394, 128 )
+scale = Vector2( 0.313333, 0.313333 )
+texture = ExtResource( 3 )
+
+[node name="linha-pontilhada-branca-pequena" type="Sprite" parent="Background"]
+position = Vector2( -206, -102 )
+scale = Vector2( 0.691667, 0.691667 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="linha-pontilhada-branca-pequena2" type="Sprite" parent="Background"]
+position = Vector2( -2, -1 )
+scale = Vector2( 0.377778, 0.377778 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="linha-pontilhada-verde" type="Sprite" parent="Background"]
+position = Vector2( -2, 0 )
+scale = Vector2( 0.377778, 0.377778 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="estrela-verde" type="Sprite" parent="Background"]
+position = Vector2( 72, 16 )
+scale = Vector2( 0.316667, 0.316667 )
+texture = ExtResource( 6 )
+
+[node name="estrela-verde2" type="Sprite" parent="Background"]
+position = Vector2( 164, 44 )
+scale = Vector2( 0.316667, 0.316667 )
+texture = ExtResource( 6 )
+
+[node name="estrela-verde3" type="Sprite" parent="Background"]
+position = Vector2( 328, 80 )
+scale = Vector2( 0.316667, 0.316667 )
+texture = ExtResource( 6 )
+
+[node name="estrela-verde4" type="Sprite" parent="Background"]
+position = Vector2( 400, 8 )
+scale = Vector2( 0.316667, 0.316667 )
+texture = ExtResource( 6 )
+
+[node name="LIA" type="TextureButton" parent="."]
+margin_left = 224.0
+margin_top = 112.0
+margin_right = 263.0
+margin_bottom = 133.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
-margin_left = 32.0
-margin_top = 56.0
-margin_right = 248.0
-margin_bottom = 71.0
-text = "Lia - Na Floresta Mágica"
+[node name="Label" type="Label" parent="LIA"]
+margin_left = -19.0
+margin_top = -18.0
+margin_right = 58.0
+margin_bottom = 54.0
+theme = SubResource( 2 )
+text = "LIA"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 32.0
-margin_top = 128.0
-margin_right = 153.0
-margin_bottom = 177.0
+[node name="Sair" type="TextureButton" parent="."]
+margin_left = 216.0
+margin_top = 200.0
+margin_right = 264.0
+margin_bottom = 221.0
+
+[node name="Label" type="Label" parent="Sair"]
+margin_left = 14.0
+margin_top = 20.0
+margin_right = 35.0
+margin_bottom = 40.0
+theme = SubResource( 4 )
+text = "SAIR"
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Jogar" type="Button" parent="VBoxContainer"]
-margin_right = 121.0
-margin_bottom = 21.0
-text = "Jogar"
-
-[node name="Sair" type="Button" parent="VBoxContainer"]
-margin_top = 25.0
-margin_right = 121.0
-margin_bottom = 46.0
-text = "Sair"
-
-[connection signal="pressed" from="VBoxContainer/Jogar" to="." method="_on_Jogar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Sair" to="." method="_on_Sair_pressed"]
+[connection signal="pressed" from="LIA" to="." method="_on_LIA_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_Sair_pressed"]

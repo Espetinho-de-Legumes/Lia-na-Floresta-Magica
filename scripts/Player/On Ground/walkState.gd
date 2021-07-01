@@ -1,6 +1,8 @@
 extends "res://scripts/Player/On Ground/onGround.gd"
 # class_name walk
 
+var currentSFXPlaying
+
 
 func enter() -> void: 
 	.enter()
@@ -9,6 +11,7 @@ func enter() -> void:
 		self.actor.animationTree.set("parameters/on_ground/current", 1)
 	
 	self.actor.walkSFX.play()
+	currentSFXPlaying = "walkSFX"
 	
 	# print("Walk State")
 
@@ -26,6 +29,7 @@ func physicsUpdate(delta: float) -> void:
 	
 	if self.actor.velocity.x == 0:
 		emit_signal("finished", "idle")
+	 
 
 func get_name() -> String:
 	return "walk"

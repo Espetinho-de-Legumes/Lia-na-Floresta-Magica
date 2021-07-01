@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bloco.PNG-d45bd175122795dbd5a3a1aad8b1f485.stex"
+path="res://.import/Estrela-branca.png-1cb5d4f5e092536911fd3b859bb8f1b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/bloco.PNG"
-dest_files=[ "res://.import/bloco.PNG-d45bd175122795dbd5a3a1aad8b1f485.stex" ]
+source_file="res://assets/images/menu-principal/Estrela-branca.png"
+dest_files=[ "res://.import/Estrela-branca.png-1cb5d4f5e092536911fd3b859bb8f1b4.stex" ]
 
 [params]
 

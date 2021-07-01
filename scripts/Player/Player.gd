@@ -5,7 +5,8 @@ onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var body: Sprite = get_node("Body")
 onready var jumpSFX:AudioStreamPlayer = get_node("SFX/jumpSFX")
 onready var walkSFX:AudioStreamPlayer = get_node("SFX/walkSFX")
-onready var landingSFX:AudioStreamPlayer = get_node("SFX/landingSFX")
+onready var walkRockSFX:AudioStreamPlayer = get_node("SFX/walkRockSFX")
+# onready var landingSFX:AudioStreamPlayer = get_node("SFX/landingSFX")
 
 export (int) var maxSpeed = 180
 export (int) var acceleration = 600
@@ -134,9 +135,6 @@ func get_name() -> String:
 func get_position() -> Vector2:
 	return position
 
-func _on_PassThroughDetection_body_entered(body: Node) -> void:
-	collidingWithPlataform = true
 
-
-func _on_PassThroughDetection_body_exited(body: Node) -> void:
-	collidingWithPlataform = false
+func _on_GroundCheck_body_entered(body: Node) -> void:
+	print(body.tile_set.tile_get_name())

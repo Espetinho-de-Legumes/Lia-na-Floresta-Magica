@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cogumelo.PNG-2f705b3b44d8c77b5cee9564c6919076.stex"
+path="res://.import/bloco-2.PNG-f7cca24d607bfcb109ac005e7a157962.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/cogumelo.PNG"
-dest_files=[ "res://.import/cogumelo.PNG-2f705b3b44d8c77b5cee9564c6919076.stex" ]
+source_file="res://assets/images/ambiente/bloco-2.PNG"
+dest_files=[ "res://.import/bloco-2.PNG-f7cca24d607bfcb109ac005e7a157962.stex" ]
 
 [params]
 

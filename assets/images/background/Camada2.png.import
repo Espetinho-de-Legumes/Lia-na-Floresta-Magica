@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cabana.png-44cc386bcf2c60e0d0b409b8cf50846c.stex"
+path="res://.import/Camada2.png-1adae4b091349fe6447cfbc278c651e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/cabana.png"
-dest_files=[ "res://.import/cabana.png-44cc386bcf2c60e0d0b409b8cf50846c.stex" ]
+source_file="res://assets/images/background/Camada2.png"
+dest_files=[ "res://.import/Camada2.png-1adae4b091349fe6447cfbc278c651e5.stex" ]
 
 [params]
 
