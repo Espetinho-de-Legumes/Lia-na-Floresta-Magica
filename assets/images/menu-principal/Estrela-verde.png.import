@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jotaro-spritesheet.PNG-18c665930eae347247654f2e49f913a5.stex"
+path="res://.import/Estrela-verde.png-d8ba089a69e68a5ddc50363ceac6a213.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spritesheets/jotaro-spritesheet.PNG"
-dest_files=[ "res://.import/jotaro-spritesheet.PNG-18c665930eae347247654f2e49f913a5.stex" ]
+source_file="res://assets/images/menu-principal/Estrela-verde.png"
+dest_files=[ "res://.import/Estrela-verde.png-d8ba089a69e68a5ddc50363ceac6a213.stex" ]
 
 [params]
 

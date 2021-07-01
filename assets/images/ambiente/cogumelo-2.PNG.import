@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arbusto.PNG-4ceb6c380435263a737a238d10f5843d.stex"
+path="res://.import/cogumelo-2.PNG-0ca8e1359210f743ef0af971a2ba3521.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/arbusto.PNG"
-dest_files=[ "res://.import/arbusto.PNG-4ceb6c380435263a737a238d10f5843d.stex" ]
+source_file="res://assets/images/ambiente/cogumelo-2.PNG"
+dest_files=[ "res://.import/cogumelo-2.PNG-0ca8e1359210f743ef0af971a2ba3521.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

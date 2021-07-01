@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jotaro-spritesheet.PNG-18c665930eae347247654f2e49f913a5.stex"
+path="res://.import/Tela-linha-pontilhada-verde.png-de35d64f313478c12e874e7cc6811f8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spritesheets/jotaro-spritesheet.PNG"
-dest_files=[ "res://.import/jotaro-spritesheet.PNG-18c665930eae347247654f2e49f913a5.stex" ]
+source_file="res://assets/images/menu-principal/Tela-linha-pontilhada-verde.png"
+dest_files=[ "res://.import/Tela-linha-pontilhada-verde.png-de35d64f313478c12e874e7cc6811f8f.stex" ]
 
 [params]
 

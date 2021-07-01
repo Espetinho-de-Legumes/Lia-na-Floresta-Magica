@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arvore.PNG-56eb9c453e064d48ed096d060e407441.stex"
+path="res://.import/bloco.PNG-cb3e596f339d8670518d543bf7565039.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/arvore.PNG"
-dest_files=[ "res://.import/arvore.PNG-56eb9c453e064d48ed096d060e407441.stex" ]
+source_file="res://assets/images/ambiente/bloco.PNG"
+dest_files=[ "res://.import/bloco.PNG-cb3e596f339d8670518d543bf7565039.stex" ]
 
 [params]
 

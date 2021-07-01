@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jotaro-spritesheet.PNG-18c665930eae347247654f2e49f913a5.stex"
+path="res://.import/Camadas1.png-705374c33f9b4282a60cf30057ac925c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spritesheets/jotaro-spritesheet.PNG"
-dest_files=[ "res://.import/jotaro-spritesheet.PNG-18c665930eae347247654f2e49f913a5.stex" ]
+source_file="res://assets/images/background/Camadas1.png"
+dest_files=[ "res://.import/Camadas1.png-705374c33f9b4282a60cf30057ac925c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
