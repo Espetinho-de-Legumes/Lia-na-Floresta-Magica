@@ -19,6 +19,7 @@ var velocity := Vector2.ZERO setget set_velocity, get_velocity
 var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
+var collidingWithRockGround: bool = false
 
 var playerStateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
 
@@ -100,8 +101,8 @@ func canJump() -> bool:
 	return directionInput.y < 0 && is_on_floor()
 
 func fallThroughPlataform() -> void:
+	print(hasFalledThrough)
 	if hasFalledThrough:
-		# print(collidingWithPlataform)
 		if !collidingWithPlataform:
 			set_collision_mask_bit(1, true)
 			hasFalledThrough = false
@@ -136,5 +137,9 @@ func get_position() -> Vector2:
 	return position
 
 
-func _on_GroundCheck_body_entered(body: Node) -> void:
-	print(body.tile_set.tile_get_name())
+func _on_PassThroughCheck_body_entered(body: Node) -> void:
+	collidingWithPlataform = true
+
+
+func _on_PassThroughCheck_body_exited(body: Node) -> void:
+	collidingWithPlataform = false
