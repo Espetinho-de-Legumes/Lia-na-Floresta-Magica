@@ -57,11 +57,11 @@ settings/stdout/print_fps=true
 
 window/size/width=480
 window/size/height=270
-window/size/test_width=1280
-window/size/test_height=760
+window/size/test_width=1200
+window/size/test_height=675
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -122,4 +122,5 @@ quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 2d/snapping/use_gpu_pixel_snap=true
 batching/precision/uv_contract=true
+environment/default_clear_color=Color( 0.337255, 0.54902, 0.54902, 1 )
 environment/default_environment="res://default_env.tres"

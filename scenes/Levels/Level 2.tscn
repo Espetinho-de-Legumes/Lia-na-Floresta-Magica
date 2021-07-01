@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/characters/Jotaro.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Levels/Level.gd" type="Script" id=5]
-[ext_resource path="res://assets/images/background/background-floresta.PNG" type="Texture" id=6]
+[ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/enemies/wormSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/tiles/oneWayTileSet.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/tiles/behindWall.tres" type="TileSet" id=9]
@@ -23,19 +23,7 @@ limit_top = -270
 limit_right = 2000
 alvo_path = NodePath("../Characters/Player")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_limit_begin = Vector2( 0, -270 )
-scroll_limit_end = Vector2( 2000, 270 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.4, 1 )
-motion_mirroring = Vector2( 1079, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, -270 )
-scale = Vector2( 1, 2 )
-texture = ExtResource( 6 )
-centered = false
+[node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
 [node name="World" type="Node2D" parent="."]
 
