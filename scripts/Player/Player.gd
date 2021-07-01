@@ -101,7 +101,7 @@ func canJump() -> bool:
 	return directionInput.y < 0 && is_on_floor()
 
 func fallThroughPlataform() -> void:
-	print(hasFalledThrough)
+	# print(hasFalledThrough)
 	if hasFalledThrough:
 		if !collidingWithPlataform:
 			set_collision_mask_bit(1, true)
