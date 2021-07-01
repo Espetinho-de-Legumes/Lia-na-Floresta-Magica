@@ -19,6 +19,7 @@ var velocity := Vector2.ZERO setget set_velocity, get_velocity
 var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
+var collidingWithRockGround: bool = false
 
 var playerStateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
 
@@ -134,7 +135,3 @@ func get_name() -> String:
 
 func get_position() -> Vector2:
 	return position
-
-
-func _on_GroundCheck_body_entered(body: Node) -> void:
-	print(body.tile_set.tile_get_name())

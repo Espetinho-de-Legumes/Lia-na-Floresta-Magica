@@ -19,6 +19,7 @@ func exit() -> void:
 	.exit()
 	
 	self.actor.walkSFX.stop()
+	self.actor.walkRockSFX.stop()
 
 func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)
@@ -29,7 +30,6 @@ func physicsUpdate(delta: float) -> void:
 	
 	if self.actor.velocity.x == 0:
 		emit_signal("finished", "idle")
-	 
 
 func get_name() -> String:
 	return "walk"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/spritesheets/lia-spritesheet.png" type="Texture" id=2]
@@ -17,9 +17,6 @@ extents = Vector2( 6.20212, 2.69003 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 13 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8.00004, 7.92291 )
 
 [sub_resource type="Animation" id=6]
 length = 0.3
@@ -139,12 +136,15 @@ node_connections = [ "output", 0, "ground_air_state", "ground_air_state", 0, "on
 scale = Vector2( 0.999995, 1.00973 )
 collision_mask = 14
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -32.0 ]
+}
 
 [node name="Body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 5
-frame = 3
+frame = 5
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2( -8, -12 )
@@ -170,13 +170,6 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 4 )
-
-[node name="GroundCheck" type="Area2D" parent="."]
-collision_mask = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundCheck"]
-position = Vector2( 0, 8.91328 )
-shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Falling = SubResource( 6 )
@@ -205,5 +198,4 @@ volume_db = -10.0
 
 [node name="walkRockSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
-
-[connection signal="body_entered" from="GroundCheck" to="." method="_on_GroundCheck_body_entered"]
+volume_db = -10.0
