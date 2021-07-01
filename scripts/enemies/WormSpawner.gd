@@ -11,7 +11,7 @@ func _on_WormSpawner_body_entered(body: Player) -> void:
 		player = body
 		playerChangeStateToJump()
 		stopCollidingWithPlayer()
-		spawnWormsAtRandomDirections()
+		call_deferred("spawnWormsAtRandomDirections")
 		timerToActive.start()
 
 func playerChangeStateToJump():

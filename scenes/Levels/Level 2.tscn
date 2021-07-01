@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tiles/florestaTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=2]
@@ -10,8 +10,13 @@
 [ext_resource path="res://assets/tiles/oneWayTileSet.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/tiles/behindWall.tres" type="TileSet" id=9]
 [ext_resource path="res://scenes/DialogueSystem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/Triggers/FinishLevel.gd" type="Script" id=11]
+[ext_resource path="res://scenes/Levels/Level 3.tscn" type="PackedScene" id=12]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 48 )
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Level 2" type="Node2D"]
 script = ExtResource( 5 )
@@ -20,10 +25,11 @@ levelName = "Level2"
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 240, 135 )
 limit_top = -270
-limit_right = 2000
+limit_right = 2400
 alvo_path = NodePath("../Characters/Player")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
+scroll_limit_end = Vector2( 2400, -270 )
 
 [node name="World" type="Node2D" parent="."]
 
@@ -80,6 +86,17 @@ position = Vector2( 200, 208 )
 
 [node name="AreaTriggers" type="Node2D" parent="."]
 
+[node name="FinishLevel" type="Area2D" parent="AreaTriggers"]
+position = Vector2( 2312, -48 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+nextLevel = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/FinishLevel"]
+shape = SubResource( 2 )
+
 [node name="StartPoint" type="Area2D" parent="AreaTriggers"]
 position = Vector2( 168, 208 )
 __meta__ = {
@@ -87,7 +104,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/StartPoint"]
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="EndPoint" type="Area2D" parent="AreaTriggers"]
 position = Vector2( 168, 208 )
@@ -96,6 +113,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/EndPoint"]
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [editable path="Characters/Jotaro/DialogueSystem"]
