@@ -5,7 +5,7 @@ func _ready():
 	GlobalAudioManager.setAudio("MenuTheme")
 
 
-func _on_Jogar_pressed():
+func startGame():
 	var ERROR = get_tree().change_scene("res://scenes/Levels/Level 1.tscn")
 	
 	if ERROR != OK:
@@ -14,3 +14,7 @@ func _on_Jogar_pressed():
 
 func _on_Sair_pressed():
 	get_tree().quit()
+
+
+func _on_LIA_pressed() -> void:
+	startGame()

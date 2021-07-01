@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arbusto.PNG-4ceb6c380435263a737a238d10f5843d.stex"
+path="res://.import/Tela-Linha-pontilhada-branca.png-8d634e2b967df916a454e439ad64d762.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/arbusto.PNG"
-dest_files=[ "res://.import/arbusto.PNG-4ceb6c380435263a737a238d10f5843d.stex" ]
+source_file="res://assets/images/menu-principal/Tela-Linha-pontilhada-branca.png"
+dest_files=[ "res://.import/Tela-Linha-pontilhada-branca.png-8d634e2b967df916a454e439ad64d762.stex" ]
 
 [params]
 

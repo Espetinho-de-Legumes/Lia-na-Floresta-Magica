@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pedra.PNG-a307a0277f763e95ccfd3da41e557052.stex"
+path="res://.import/bloco-1.PNG-61eaa50b6e691c536bf54c7ed0e8a15e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pedra.PNG"
-dest_files=[ "res://.import/pedra.PNG-a307a0277f763e95ccfd3da41e557052.stex" ]
+source_file="res://assets/images/ambiente/bloco-1.PNG"
+dest_files=[ "res://.import/bloco-1.PNG-61eaa50b6e691c536bf54c7ed0e8a15e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
