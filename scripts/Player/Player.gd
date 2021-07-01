@@ -136,5 +136,5 @@ func get_position() -> Vector2:
 	return position
 
 
-func _on_GroundCheck_body_entered(body: Node) -> void:
-	print(body.tile_set.tile_get_name())
+#func _on_GroundCheck_body_entered(body: Node) -> void:
+#	print(body.tile_set.tile_get_name())
