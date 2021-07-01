@@ -101,8 +101,8 @@ func canJump() -> bool:
 	return directionInput.y < 0 && is_on_floor()
 
 func fallThroughPlataform() -> void:
+	print(hasFalledThrough)
 	if hasFalledThrough:
-		# print(collidingWithPlataform)
 		if !collidingWithPlataform:
 			set_collision_mask_bit(1, true)
 			hasFalledThrough = false
@@ -135,3 +135,11 @@ func get_name() -> String:
 
 func get_position() -> Vector2:
 	return position
+
+
+func _on_PassThroughCheck_body_entered(body: Node) -> void:
+	collidingWithPlataform = true
+
+
+func _on_PassThroughCheck_body_exited(body: Node) -> void:
+	collidingWithPlataform = false

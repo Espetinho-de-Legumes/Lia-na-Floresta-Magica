@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/spritesheets/lia-spritesheet.png" type="Texture" id=2]
@@ -12,13 +12,10 @@ polygon = PoolVector2Array( 0, 0, 16.0001, 0, 16, 28, 0, 28 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 13 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6.20212, 2.69003 )
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 10, 12 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8, 13 )
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -33,7 +30,7 @@ tracks/0/keys = {
 "values": [ 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -49,7 +46,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -64,7 +61,7 @@ tracks/0/keys = {
 "values": [ 17, 18 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -80,57 +77,57 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Falling"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeTransition" id=14]
+[sub_resource type="AnimationNodeTransition" id=11]
 input_count = 2
 input_0/name = "on_ground"
 input_0/auto_advance = false
 input_1/name = "on_air"
 input_1/auto_advance = false
 
-[sub_resource type="AnimationNodeTransition" id=15]
+[sub_resource type="AnimationNodeTransition" id=12]
 input_count = 2
 input_0/name = "jump"
 input_0/auto_advance = false
 input_1/name = "falling"
 input_1/auto_advance = false
 
-[sub_resource type="AnimationNodeTransition" id=16]
+[sub_resource type="AnimationNodeTransition" id=13]
 input_count = 2
 input_0/name = "idle"
 input_0/auto_advance = false
 input_1/name = "walk"
 input_1/auto_advance = false
 
-[sub_resource type="AnimationNodeBlendTree" id=17]
+[sub_resource type="AnimationNodeBlendTree" id=14]
 graph_offset = Vector2( -512.167, 458.5 )
-"nodes/Falling Animation/node" = SubResource( 10 )
+"nodes/Falling Animation/node" = SubResource( 7 )
 "nodes/Falling Animation/position" = Vector2( -300, 660 )
-"nodes/Idle Animation/node" = SubResource( 11 )
+"nodes/Idle Animation/node" = SubResource( 8 )
 "nodes/Idle Animation/position" = Vector2( -300, 120 )
-"nodes/Jump Animation/node" = SubResource( 12 )
+"nodes/Jump Animation/node" = SubResource( 9 )
 "nodes/Jump Animation/position" = Vector2( -300, 500 )
-"nodes/Walk Animation/node" = SubResource( 13 )
+"nodes/Walk Animation/node" = SubResource( 10 )
 "nodes/Walk Animation/position" = Vector2( -520, 320 )
-nodes/ground_air_state/node = SubResource( 14 )
+nodes/ground_air_state/node = SubResource( 11 )
 nodes/ground_air_state/position = Vector2( 180, 340 )
-nodes/on_air/node = SubResource( 15 )
+nodes/on_air/node = SubResource( 12 )
 nodes/on_air/position = Vector2( -40, 460 )
-nodes/on_ground/node = SubResource( 16 )
+nodes/on_ground/node = SubResource( 13 )
 nodes/on_ground/position = Vector2( -60, 280 )
 nodes/output/position = Vector2( 440, 380 )
-node_connections = [ "output", 0, "ground_air_state", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air", "on_air", 0, "Jump Animation", "on_air", 1, "Falling Animation", "on_ground", 0, "Idle Animation", "on_ground", 1, "Walk Animation" ]
+node_connections = [ "output", 0, "ground_air_state", "on_air", 0, "Jump Animation", "on_air", 1, "Falling Animation", "on_ground", 0, "Idle Animation", "on_ground", 1, "Walk Animation", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air" ]
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.999995, 1.00973 )
@@ -144,41 +141,35 @@ __meta__ = {
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 5
-frame = 5
+frame = 3
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2( -8, -12 )
 occluder = SubResource( 1 )
 
 [node name="CollisionArea" type="CollisionShape2D" parent="."]
-position = Vector2( 0.00246025, 0.990359 )
+visible = false
+position = Vector2( 2.32831e-10, 5.96046e-08 )
 shape = SubResource( 2 )
 
-[node name="HitBox" type="Area2D" parent="."]
-visible = false
-collision_layer = 64
-collision_mask = 128
+[node name="PassThroughCheck" type="Area2D" parent="."]
+position = Vector2( 0, 0.990364 )
+scale = Vector2( 1, 1 )
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( 0.471941, 9.11409 )
-shape = SubResource( 3 )
-
-[node name="HurtBox" type="Area2D" parent="."]
-visible = false
-collision_layer = 128
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource( 4 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassThroughCheck"]
+position = Vector2( 0, 3.96146 )
+shape = SubResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Falling = SubResource( 6 )
-anims/Idle = SubResource( 7 )
-anims/Jump = SubResource( 8 )
-anims/Walk = SubResource( 9 )
+anims/Falling = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Walk = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 17 )
+tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/ground_air_state/current = 0
@@ -199,3 +190,6 @@ volume_db = -10.0
 [node name="walkRockSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
 volume_db = -10.0
+
+[connection signal="body_entered" from="PassThroughCheck" to="." method="_on_PassThroughCheck_body_entered"]
+[connection signal="body_exited" from="PassThroughCheck" to="." method="_on_PassThroughCheck_body_exited"]
