@@ -8,17 +8,14 @@
 extents = Vector2( 24, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 32, 32, 32 )
 
@@ -55,7 +52,6 @@ visible = false
 position = Vector2( 424, 184 )
 scale = Vector2( 5.93063, 5.93063 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [editable path="InitialDialog"]
