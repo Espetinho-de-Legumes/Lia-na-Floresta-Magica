@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/tiles/florestaTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=2]
@@ -73,6 +73,20 @@ extents = Vector2( 288, 10 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 392, 10 )
+[ext_resource path="res://assets/images/ambiente/arvore.PNG" type="Texture" id=13]
+[ext_resource path="res://assets/images/ambiente/cogumelo-1.PNG" type="Texture" id=14]
+[ext_resource path="res://assets/images/ambiente/cogumelo-2.PNG" type="Texture" id=15]
+[ext_resource path="res://assets/images/ambiente/bloco-1.PNG" type="Texture" id=16]
+[ext_resource path="res://assets/images/ambiente/bloco.PNG" type="Texture" id=17]
+[ext_resource path="res://assets/images/ambiente/arbusto.PNG" type="Texture" id=18]
+[ext_resource path="res://assets/images/ambiente/cogumelo.PNG" type="Texture" id=19]
+[ext_resource path="res://assets/images/ambiente/bloco-2.PNG" type="Texture" id=20]
+[ext_resource path="res://assets/images/ambiente/peso.png" type="Texture" id=21]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 48 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Level 2" type="Node2D"]
 script = ExtResource( 5 )
@@ -88,6 +102,54 @@ alvo_path = NodePath("../Characters/Player")
 scroll_limit_end = Vector2( 2400, -270 )
 
 [node name="World" type="Node2D" parent="."]
+
+[node name="arvore" type="Sprite" parent="World"]
+position = Vector2( 655.397, 218.239 )
+scale = Vector2( 0.144582, 0.144582 )
+texture = ExtResource( 13 )
+offset = Vector2( -105.194, -590.067 )
+
+[node name="arvore2" type="Sprite" parent="World"]
+position = Vector2( 307.789, -27.5668 )
+scale = Vector2( 0.144582, 0.172328 )
+texture = ExtResource( 13 )
+offset = Vector2( -105.194, -590.067 )
+
+[node name="arvore3" type="Sprite" parent="World"]
+position = Vector2( 1335.63, -33.4768 )
+scale = Vector2( 0.144582, 0.144582 )
+texture = ExtResource( 13 )
+offset = Vector2( -105.194, -590.067 )
+
+[node name="arvore4" type="Sprite" parent="World"]
+position = Vector2( 1321.07, 245.731 )
+scale = Vector2( 0.0835817, 0.0881357 )
+texture = ExtResource( 13 )
+offset = Vector2( -105.194, -590.067 )
+
+[node name="arbusto" type="Sprite" parent="World"]
+position = Vector2( 293.233, 219.75 )
+scale = Vector2( 0.0582411, 0.0582411 )
+texture = ExtResource( 18 )
+
+[node name="arbusto2" type="Sprite" parent="World"]
+position = Vector2( 808.958, 121.512 )
+scale = Vector2( 0.0501864, 0.0501864 )
+texture = ExtResource( 18 )
+
+[node name="arbusto3" type="Sprite" parent="World"]
+position = Vector2( 623.33, -37.417 )
+scale = Vector2( 0.0501864, 0.0501864 )
+texture = ExtResource( 18 )
+
+[node name="arbusto4" type="Sprite" parent="World"]
+position = Vector2( 1549.03, 248.522 )
+scale = Vector2( 0.0501864, 0.0501864 )
+texture = ExtResource( 18 )
+
+[node name="peso" type="Sprite" parent="World"]
+position = Vector2( 541.231, 188.622 )
+texture = ExtResource( 21 )
 
 [node name="BehindWall" type="TileMap" parent="World"]
 tile_set = ExtResource( 9 )
@@ -122,6 +184,68 @@ position = Vector2( 2312, -48 )
 frames = SubResource( 11 )
 frame = 7
 playing = true
+
+[node name="cogumelo-1" type="Sprite" parent="World"]
+position = Vector2( 247.594, 264.468 )
+scale = Vector2( 0.0632439, 0.0632439 )
+texture = ExtResource( 14 )
+
+[node name="cogumelo-1-2" type="Sprite" parent="World"]
+position = Vector2( 2050.03, 138.921 )
+scale = Vector2( 0.0418348, 0.0418348 )
+texture = ExtResource( 14 )
+flip_h = true
+
+[node name="cogumelo-1-3" type="Sprite" parent="World"]
+position = Vector2( 1723.75, 246.627 )
+scale = Vector2( 0.071542, 0.071542 )
+texture = ExtResource( 14 )
+
+[node name="cogumelo-2" type="Sprite" parent="World"]
+position = Vector2( 673.108, 239.171 )
+scale = Vector2( 0.0476744, 0.0476744 )
+texture = ExtResource( 15 )
+
+[node name="cogumelo-2-2" type="Sprite" parent="World"]
+position = Vector2( 733.591, -78.0229 )
+scale = Vector2( 0.0265832, 0.0265832 )
+texture = ExtResource( 15 )
+
+[node name="cogumelo-2-3" type="Sprite" parent="World"]
+position = Vector2( 1020.9, -19.2322 )
+scale = Vector2( 0.0537065, 0.0537065 )
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="cogumelo" type="Sprite" parent="World"]
+position = Vector2( 414.248, -14.9998 )
+scale = Vector2( 0.0563073, 0.0563073 )
+texture = ExtResource( 19 )
+
+[node name="cogumelo2" type="Sprite" parent="World"]
+position = Vector2( 1027.21, 248.043 )
+scale = Vector2( 0.0563073, 0.0563073 )
+texture = ExtResource( 19 )
+
+[node name="bloco-1" type="Sprite" parent="World"]
+position = Vector2( 249.328, -14.5601 )
+scale = Vector2( 0.0543903, 0.0543903 )
+texture = ExtResource( 16 )
+
+[node name="bloco-1-2" type="Sprite" parent="World"]
+position = Vector2( 579.8, 268.822 )
+scale = Vector2( 0.0543903, 0.0543903 )
+texture = ExtResource( 16 )
+
+[node name="bloco-2" type="Sprite" parent="World"]
+position = Vector2( 1179.63, -12.4839 )
+scale = Vector2( 0.0806892, 0.0806892 )
+texture = ExtResource( 20 )
+
+[node name="bloco" type="Sprite" parent="World"]
+position = Vector2( 50.7379, 269.447 )
+scale = Vector2( 0.0509548, 0.0509548 )
+texture = ExtResource( 17 )
 
 [node name="Objects" type="Node2D" parent="."]
 
