@@ -38,3 +38,12 @@ func move(delta: float):
 
 func _on_Timer_timeout() -> void:
 	queue_free()
+
+
+func _on_HurtBox_body_entered(body: Player) -> void:
+	# if body.name == "Player":
+	if body == null:
+		return
+	if is_on_floor():
+		body.collectWorms()
+		queue_free()

@@ -20,6 +20,8 @@ var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
 var collidingWithRockGround: bool = false
+var collectedWorms: int = 0
+var hasCompletedMainQuest: bool = false
 
 var playerStateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
 
@@ -101,7 +103,6 @@ func canJump() -> bool:
 	return directionInput.y < 0 && is_on_floor()
 
 func fallThroughPlataform() -> void:
-	print(hasFalledThrough)
 	if hasFalledThrough:
 		if !collidingWithPlataform:
 			set_collision_mask_bit(1, true)
@@ -135,6 +136,10 @@ func get_name() -> String:
 
 func get_position() -> Vector2:
 	return position
+
+func collectWorms() -> void:
+	collectedWorms += 1
+	print(collectedWorms)
 
 
 func _on_PassThroughCheck_body_entered(body: Node) -> void:

@@ -1,7 +1,10 @@
 tool
 extends Node2D
 
+signal dialogFinished
+
 export(String, FILE, "*json") var dialogFile
+export(bool) var showQuestMark = true
 
 onready var dialogueContainer: Control = get_node("CanvasLayer/DialogContainer")
 onready var NameLabel: Label = get_node("CanvasLayer/DialogContainer/DialogBox/Name")
@@ -24,7 +27,7 @@ func _get_configuration_warning() -> String:
 func _ready() -> void:
 	setActive(false)
 	listOfDialogs = loadDialog()
-	questMark.visible = true
+	questMark.visible = showQuestMark
 	
 	# tween.interpolate_property(questMark, "rect_position:y", Vector2.ZERO, Vector2(0, 200), 10, Tween.TRANS_BOUNCE, Tween.EASE_IN)
 	# tween.start()
@@ -76,3 +79,4 @@ func _on_EndTimer_timeout() -> void:
 	setActive(false)
 	setPlayerActive(true)
 	questMark.visible = false
+	emit_signal("dialogFinished")

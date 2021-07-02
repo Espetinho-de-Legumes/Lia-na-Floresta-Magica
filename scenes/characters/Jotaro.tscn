@@ -1,35 +1,30 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scripts/NPC.gd" type="Script" id=1]
+[ext_resource path="res://scripts/NPCs/Jotaro.gd" type="Script" id=1]
 [ext_resource path="res://assets/spritesheets/jotaro-spritesheet.PNG" type="Texture" id=2]
+[ext_resource path="res://scenes/DialogueSystem.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 265, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 530, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 242, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 265, 242, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 530, 242, 265, 242 )
 
@@ -47,6 +42,7 @@ extents = Vector2( 31.875, 21.875 )
 [node name="Jotaro" type="Area2D"]
 collision_layer = 32
 script = ExtResource( 1 )
+wormsToCollect = 10
 
 [node name="Body" type="AnimatedSprite" parent="."]
 position = Vector2( -4.76837e-07, 0 )
@@ -55,3 +51,12 @@ frames = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 8 )
+
+[node name="InitialDialog" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
+dialogFile = "res://assets/falas/jotaro-lia-inicio.json"
+
+[node name="EndDialog" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
+dialogFile = "res://assets/falas/jotaro-lia-fim.json"
+showQuestMark = false
