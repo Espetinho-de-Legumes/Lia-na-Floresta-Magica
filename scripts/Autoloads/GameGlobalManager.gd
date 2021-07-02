@@ -5,6 +5,8 @@ var playerStatus = {
 	"health": 3,
 	"numberOfDeaths": 0,
 	"score": 0,
+	"hasDied": false,
+	"lastScene": "Level1",
 	"hasTheCure": false
 }
 
@@ -20,6 +22,12 @@ var Level2Data = {
 }
 
 var Level3Data = {
+	"hasFinishedLevel": false,
+	"hasTalkedToJotaro": false,
+	"hasCompletedJotaroQuest": false
+}
+
+var Level4Data = {
 	"hasFinishedLevel": false,
 	"hasTalkedToJotaro": false,
 	"hasCompletedJotaroQuest": false

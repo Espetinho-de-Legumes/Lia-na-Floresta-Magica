@@ -6,7 +6,7 @@ func _ready():
 
 
 func startGame():
-	var ERROR = get_tree().change_scene("res://scenes/Levels/Level 1.tscn")
+	var ERROR = get_tree().change_scene("res://scenes/Levels/Level1.tscn")
 	
 	if ERROR != OK:
 		print("ERROR")
