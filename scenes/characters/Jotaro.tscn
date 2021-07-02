@@ -5,26 +5,32 @@
 [ext_resource path="res://scenes/DialogueSystem.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 265, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 530, 0, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 242, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 265, 242, 265, 242 )
 
 [sub_resource type="AtlasTexture" id=6]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 530, 242, 265, 242 )
 
@@ -48,6 +54,8 @@ wormsToCollect = 10
 position = Vector2( -4.76837e-07, 0 )
 scale = Vector2( 0.161286, 0.161286 )
 frames = SubResource( 7 )
+frame = 1
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 8 )

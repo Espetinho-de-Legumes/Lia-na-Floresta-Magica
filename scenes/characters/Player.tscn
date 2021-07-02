@@ -138,10 +138,9 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 5
-frame = 1
+frame = 2
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2( -8, -12 )
 occluder = SubResource( 1 )
 
