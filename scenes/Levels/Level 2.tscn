@@ -177,7 +177,7 @@ texture = ExtResource( 13 )
 [node name="portal" type="AnimatedSprite" parent="World"]
 position = Vector2( 2312, -48 )
 frames = SubResource( 11 )
-frame = 8
+frame = 5
 playing = true
 
 [node name="cogumelo-1" type="Sprite" parent="World"]
@@ -277,7 +277,7 @@ nextLevel = ExtResource( 12 )
 shape = SubResource( 12 )
 
 [node name="StartPoint" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 168, 208 )
+position = Vector2( 120, 208 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -286,7 +286,7 @@ __meta__ = {
 shape = SubResource( 13 )
 
 [node name="EndPoint" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 2208, -16 )
+position = Vector2( 2208, -24 )
 __meta__ = {
 "_edit_group_": true
 }

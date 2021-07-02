@@ -15,15 +15,13 @@ var lastLeftLimit: int = 0
 
 func _ready() -> void:
 	camera = get_node(cameraPath)
-	
+
+func _on_ChangeCameraLimits_body_entered(body: Player) -> void:
 	lastTopLimit = camera.get_limit(MARGIN_TOP)
 	lastRightLimit = camera.get_limit(MARGIN_RIGHT)
 	lastBottomLimit = camera.get_limit(MARGIN_BOTTOM)
 	lastLeftLimit = camera.get_limit(MARGIN_LEFT)
 	
-	print(camera)
-
-func _on_ChangeCameraLimits_body_entered(body: Player) -> void:
 	if body.velocity.x * int(onEnter) > 0:
 		camera.set_limit(MARGIN_TOP, topLimit)
 		camera.set_limit(MARGIN_RIGHT, rightLimit)

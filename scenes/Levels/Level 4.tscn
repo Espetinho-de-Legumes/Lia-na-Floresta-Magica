@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/tiles/groundMagicoTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/tiles/tiles-floresta-magica.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/tiles/magicoOneWayTileSet.tres" type="Shape2D" id=5]
+[ext_resource path="res://scenes/characters/Frey.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "floresta-magica"
@@ -291,6 +292,9 @@ tile_data = PoolIntArray( -393199, 4, 0, -393198, 4, 1, -393197, 4, 2, -393193, 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource( 4 )]
-position = Vector2( 200, 160 )
+position = Vector2( 1096, -176 )
+
+[node name="Frey" parent="Characters" instance=ExtResource( 6 )]
+position = Vector2( 1352, -168 )
 
 [node name="AreaTriggers" type="Node2D" parent="."]

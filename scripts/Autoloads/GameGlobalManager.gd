@@ -19,5 +19,11 @@ var Level2Data = {
 	"hasCompletedJotaroQuest": false
 }
 
+var Level3Data = {
+	"hasFinishedLevel": false,
+	"hasTalkedToJotaro": false,
+	"hasCompletedJotaroQuest": false
+}
+
 func setLevel1Data(property: String, value) -> void:
 	Level1Data[property] = value
