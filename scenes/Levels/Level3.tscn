@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/tiles/tiles-floresta-magica.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/images/cogumelos/cogumelo-caverna-1.PNG" type="Texture" id=16]
 [ext_resource path="res://assets/images/cogumelos/cogumelo-caverna-2.PNG" type="Texture" id=17]
 [ext_resource path="res://assets/images/cogumelos/cogumelo-caverna.png" type="Texture" id=18]
+[ext_resource path="res://assets/sfx/portal.ogg" type="AudioStream" id=19]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 12 )
@@ -200,16 +201,25 @@ __meta__ = {
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="arvore" type="Sprite" parent="World"]
+[node name="arvore-portal" type="Sprite" parent="World"]
 position = Vector2( 24, 0 )
 texture = ExtResource( 11 )
 
-[node name="portal" type="AnimatedSprite" parent="World/arvore"]
+[node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( 32, 192 )
 frames = SubResource( 11 )
-frame = 3
+frame = 8
 playing = true
 flip_h = true
+
+[node name="portalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]
+stream = ExtResource( 19 )
+autoplay = true
+max_distance = 1500.0
+attenuation = 2.63902
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="BehindWall" type="TileMap" parent="World"]
 tile_set = SubResource( 12 )

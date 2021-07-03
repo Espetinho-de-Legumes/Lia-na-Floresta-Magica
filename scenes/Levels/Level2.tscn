@@ -151,6 +151,7 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
+frame = 7
 playing = true
 
 [node name="PortalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]
@@ -256,12 +257,6 @@ position = Vector2( 408, 104 )
 [node name="Gem3" parent="Objects" instance=ExtResource( 23 )]
 position = Vector2( 1112, 176 )
 
-[node name="Gem10" parent="Objects" instance=ExtResource( 23 )]
-position = Vector2( 1512, 176 )
-
-[node name="Gem11" parent="Objects" instance=ExtResource( 23 )]
-position = Vector2( 1832, 40 )
-
 [node name="Gem4" parent="Objects" instance=ExtResource( 23 )]
 position = Vector2( 872, -24 )
 
@@ -279,6 +274,12 @@ position = Vector2( 1248, -80 )
 
 [node name="Gem9" parent="Objects" instance=ExtResource( 23 )]
 position = Vector2( 1536, -88 )
+
+[node name="Gem10" parent="Objects" instance=ExtResource( 23 )]
+position = Vector2( 1512, 176 )
+
+[node name="Gem11" parent="Objects" instance=ExtResource( 23 )]
+position = Vector2( 1832, 40 )
 
 [node name="Enemies" type="Node2D" parent="."]
 

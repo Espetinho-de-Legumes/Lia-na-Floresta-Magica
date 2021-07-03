@@ -267,6 +267,8 @@ extents = Vector2( 240, 10 )
 
 [node name="Level 4" type="Node2D"]
 script = ExtResource( 8 )
+levelName = "Level4"
+MainLevelTheme = "ForestMagicTheme"
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 144, 120 )
@@ -350,39 +352,36 @@ __meta__ = {
 shape = SubResource( 13 )
 
 [node name="DeathZone" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 520, 312 )
+position = Vector2( 576, 328 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/DeathZone"]
-position = Vector2( 88, 8 )
 shape = SubResource( 14 )
 
 [node name="DeathZone2" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 520, 312 )
+position = Vector2( 1112, 328 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/DeathZone2"]
-position = Vector2( 568, 16 )
 shape = SubResource( 14 )
 
 [node name="DeathZone3" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 520, 312 )
+position = Vector2( 1624, 328 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTriggers/DeathZone3"]
-position = Vector2( 1120, 16 )
 shape = SubResource( 14 )
 
 [connection signal="finish_game" from="Characters/Frey" to="." method="_on_Frey_finish_game"]
-[connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="_on_DeathZone_reset_player"]
-[connection signal="reset_player" from="AreaTriggers/DeathZone2" to="." method="_on_DeathZone_reset_player"]
-[connection signal="reset_player" from="AreaTriggers/DeathZone3" to="." method="_on_DeathZone_reset_player"]
+[connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="reset_player"]
+[connection signal="reset_player" from="AreaTriggers/DeathZone2" to="." method="reset_player"]
+[connection signal="reset_player" from="AreaTriggers/DeathZone3" to="." method="reset_player"]
