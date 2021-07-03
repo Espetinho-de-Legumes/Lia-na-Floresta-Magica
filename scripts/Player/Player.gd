@@ -20,8 +20,8 @@ var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
 var collidingWithRockGround: bool = false
-var collectedWorms: int = 0
-var hasCompletedMainQuest: bool = false
+# var collectedWorms: int = 0
+# var hasCompletedMainQuest: bool = false
 
 var playerStateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
 
@@ -138,8 +138,8 @@ func get_position() -> Vector2:
 	return position
 
 func collectWorms() -> void:
-	collectedWorms += 1
-	print(collectedWorms)
+	PlayerData.collectedWorms += 1
+	print(PlayerData.collectedWorms)
 
 
 func _on_PassThroughCheck_body_entered(body: Node) -> void:

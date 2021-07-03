@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/spritesheets/cogumelo-dancante-sprisheet.png" type="Texture" id=1]
+[ext_resource path="res://scenes/DialogueSystem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/NPCs/Celo.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1080, 1080 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 1080, 0, 1080, 1080 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 1080, 1080, 1080 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 1080, 1080, 1080, 1080 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 16 )
+
+[node name="Celo" type="Area2D"]
+collision_layer = 32
+script = ExtResource( 3 )
+
+[node name="Body" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.0444444, 0.0444445 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
+[node name="InitialDialog" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -32 )
+dialogFile = "res://assets/falas/celo-lia-inicio.json"
+
+[node name="OnQuestDialog" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -32 )
+dialogFile = "res://assets/falas/celo-lia-on-quest.json"
+showQuestMark = false
+
+[node name="EndDialog" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -32 )
+dialogFile = "res://assets/falas/celo-lia-fim.json"
+showQuestMark = false

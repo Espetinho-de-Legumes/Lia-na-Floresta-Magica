@@ -1,14 +1,4 @@
-extends Node2D
-
-var playerStatus = {
-	"lives": 3,
-	"health": 3,
-	"numberOfDeaths": 0,
-	"score": 0,
-	"hasDied": false,
-	"lastScene": "Level1",
-	"hasTheCure": false
-}
+extends Node
 
 var Level1Data = {
 	"hasFinishedLevel": false,
@@ -32,6 +22,3 @@ var Level4Data = {
 	"hasTalkedToJotaro": false,
 	"hasCompletedJotaroQuest": false
 }
-
-func setLevel1Data(property: String, value) -> void:
-	Level1Data[property] = value

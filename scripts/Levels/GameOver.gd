@@ -1,9 +1,11 @@
 extends Control
 
-var scene = load("res://scenes/Levels/" + GameGlobalManager.playerStatus.lastScene + ".tscn")
+var scene = load("res://scenes/Levels/Level1.tscn")
+var GameOverTheme = "MainTheme"
 
 func _ready() -> void:
-	pass
+	if GlobalAudioManager.currentPlaying == null || GlobalAudioManager.currentPlaying.name != GameOverTheme:
+		GlobalAudioManager.setAudio(GameOverTheme)
 
 
 func _on_CountDown_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/characters/Anna.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scripts/Triggers/DeathZone.gd" type="Script" id=11]
 [ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/images/ambiente/arvore.PNG" type="Texture" id=13]
+[ext_resource path="res://scenes/Colectables/Gem.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://assets/images/ambiente/cogumelo-1.PNG" type="Texture" id=16]
 [ext_resource path="res://assets/images/ambiente/cogumelo-2.PNG" type="Texture" id=18]
@@ -46,6 +47,15 @@ rotation = 0.00246024
 scale = Vector2( 1.35596, 1.36916 )
 texture = ExtResource( 8 )
 flip_h = true
+
+[node name="Gem" parent="Objects" instance=ExtResource( 14 )]
+position = Vector2( 920, 160 )
+
+[node name="Gem2" parent="Objects" instance=ExtResource( 14 )]
+position = Vector2( 1408, 88 )
+
+[node name="Gem3" parent="Objects" instance=ExtResource( 14 )]
+position = Vector2( 1824, 88 )
 
 [node name="World" type="Node2D" parent="."]
 
@@ -179,4 +189,4 @@ script = ExtResource( 11 )
 position = Vector2( -72, 320 )
 shape = SubResource( 3 )
 
-[connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="_on_DeathZone_reset_player"]
+[connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="reset_player"]

@@ -40,7 +40,7 @@ func _on_Timer_timeout() -> void:
 	queue_free()
 
 
-func _on_HurtBox_body_entered(body: Player) -> void:
+func _on_HurtBox_body_entered(body) -> void:
 	# if body.name == "Player":
 	if body == null:
 		return

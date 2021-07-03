@@ -3,13 +3,16 @@ extends Node2D
 export(String) var levelName
 export(String) var MainLevelTheme = "MainTheme"
 
-onready var player:Player = get_node("Characters/Player")
+onready var player = get_node("Characters/Player")
 onready var startPoint: Area2D = get_node("AreaTriggers/StartPoint")
 onready var endPoint: Area2D = get_node("AreaTriggers/EndPoint")
 
 # var MainLevelTheme = "MainTheme"
 
 func _ready() -> void:
+	PlayerData.connect("game_over", self, "on_game_over")
+	PlayerData.connect("game_over", self, "game_over")
+	
 	if GlobalAudioManager.currentPlaying == null || GlobalAudioManager.currentPlaying.name != MainLevelTheme:
 		GlobalAudioManager.setAudio(MainLevelTheme)
 	
@@ -18,18 +21,15 @@ func _ready() -> void:
 	else:
 		player.position = endPoint.position
 	
-	if GlobalAudioManager.currentPlaying:
-		if GlobalAudioManager.currentPlaying.name != MainLevelTheme:
-			GlobalAudioManager.setAudio(MainLevelTheme)
-	
 	var enemiesNode:Node = get_node_or_null("Enemies")
 	if enemiesNode:
 		for children in enemiesNode.get_children():
-			children.connect("game_over", self, "_on_Slime_game_over")
+			children.connect("player_died", self, "reset_player")
 
-func _on_DeathZone_reset_player() -> void:
+func reset_player() -> void:
+	PlayerData.lives -= 1
+	player.playerStateMachine.changeState("idle")
 	player.position = startPoint.position
 
-func _on_Slime_game_over() -> void:
-	GameGlobalManager.playerStatus.lastScene = levelName
+func game_over():
 	get_tree().change_scene_to(load("res://scenes/Levels/GameOver.tscn"))

@@ -12,9 +12,10 @@ func handleCustomLogic():
 	if questStarted && !questFinished:
 		var player = listOfOverlappedBodies[0]
 		
-		if player.collectedWorms >= wormsToCollect:
-			emit_signal("finish_jotaro_quest")
+		if PlayerData.collectedWorms >= wormsToCollect:
 			questFinished = true
+			hasFinished = true
+			emit_signal("finish_jotaro_quest")
 
 func _on_InitialDialog_dialogFinished() -> void:
 	._on_InitialDialog_dialogFinished()

@@ -178,7 +178,7 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
-frame = 9
+frame = 3
 playing = true
 
 [node name="cogumelo-1" type="Sprite" parent="World"]
@@ -318,5 +318,5 @@ shape = SubResource( 15 )
 
 [connection signal="finish_jotaro_quest" from="Characters/Jotaro" to="." method="_on_Jotaro_finish_jotaro_quest"]
 [connection signal="start_jotaro_quest" from="Characters/Jotaro" to="." method="_on_Jotaro_start_jotaro_quest"]
-[connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="_on_DeathZone_reset_player"]
-[connection signal="reset_player" from="AreaTriggers/DeathZone2" to="." method="_on_DeathZone_reset_player"]
+[connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="reset_player"]
+[connection signal="reset_player" from="AreaTriggers/DeathZone2" to="." method="reset_player"]

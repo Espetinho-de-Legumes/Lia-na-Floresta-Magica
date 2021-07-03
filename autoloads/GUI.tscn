@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/MainTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Autoloads/GUI.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="GUI" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+script = ExtResource( 3 )
+
+[node name="PauseScene" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="PauseScene"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.329412 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PauseScene"]
+margin_left = 40.0
+margin_top = 56.0
+margin_right = 147.0
+margin_bottom = 86.0
+theme = SubResource( 2 )
+text = "Jogo Pausado"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opcoes" type="VBoxContainer" parent="PauseScene"]
+margin_left = 40.0
+margin_top = 104.0
+margin_right = 144.0
+margin_bottom = 160.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Voltar ao Jogo" type="Button" parent="PauseScene/Opcoes"]
+margin_right = 104.0
+margin_bottom = 26.0
+text = "Voltar ao Jogo"
+
+[node name="Sair" type="Button" parent="PauseScene/Opcoes"]
+margin_top = 30.0
+margin_right = 104.0
+margin_bottom = 56.0
+text = "Sair"
+
+[connection signal="pressed" from="PauseScene/Opcoes/Voltar ao Jogo" to="." method="_on_Voltar_ao_Jogo_pressed"]
+[connection signal="pressed" from="PauseScene/Opcoes/Sair" to="." method="_on_Sair_pressed"]
