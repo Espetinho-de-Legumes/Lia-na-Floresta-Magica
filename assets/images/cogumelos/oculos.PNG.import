@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cogumelo-caverna-2.PNG-e45b6d4be5b0f32f938af66f57492853.stex"
+path="res://.import/oculos.PNG-96700433dae43107fc49bbf344a8197a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/cogumelos/cogumelo-caverna-2.PNG"
-dest_files=[ "res://.import/cogumelo-caverna-2.PNG-e45b6d4be5b0f32f938af66f57492853.stex" ]
+source_file="res://assets/images/cogumelos/oculos.PNG"
+dest_files=[ "res://.import/oculos.PNG-96700433dae43107fc49bbf344a8197a.stex" ]
 
 [params]
 

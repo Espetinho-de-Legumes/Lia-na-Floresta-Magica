@@ -1,5 +1,6 @@
 extends "res://scripts/NPCs/NPC.gd"
+signal finish_game
 
 
 func _on_InitialDialog_dialogFinished() -> void:
-	print("FINISH GAME")
+	emit_signal("finish_game")

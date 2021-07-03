@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/tiles/tiles-floresta-magica.png" type="Texture" id=1]
 [ext_resource path="res://assets/tiles/magicoOneWayTileSet.tres" type="Shape2D" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://scenes/characters/Frey.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/enemies/Slime.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/tiles/groundMagicoTileSet.tres" type="TileSet" id=7]
-[ext_resource path="res://scripts/Levels/Level.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Levels/Level4.gd" type="Script" id=8]
 [ext_resource path="res://scripts/Triggers/DeathZone.gd" type="Script" id=9]
+[ext_resource path="res://scenes/FlorestaMagicaParallax.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "floresta-magica"
@@ -266,13 +267,13 @@ extents = Vector2( 240, 10 )
 
 [node name="Level 4" type="Node2D"]
 script = ExtResource( 8 )
-levelName = "Level4"
-MainLevelTheme = "ForestMagicTheme"
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 144, 120 )
 limit_top = -300
 alvo_path = NodePath("../Characters/Player")
+
+[node name="FlorestaMagicaParallax" parent="." instance=ExtResource( 10 )]
 
 [node name="World" type="Node2D" parent="."]
 
@@ -381,6 +382,7 @@ __meta__ = {
 position = Vector2( 1120, 16 )
 shape = SubResource( 14 )
 
+[connection signal="finish_game" from="Characters/Frey" to="." method="_on_Frey_finish_game"]
 [connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="_on_DeathZone_reset_player"]
 [connection signal="reset_player" from="AreaTriggers/DeathZone2" to="." method="_on_DeathZone_reset_player"]
 [connection signal="reset_player" from="AreaTriggers/DeathZone3" to="." method="_on_DeathZone_reset_player"]
