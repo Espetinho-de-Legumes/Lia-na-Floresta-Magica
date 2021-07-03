@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/tiles/florestaTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/images/ambiente/cogumelo.PNG" type="Texture" id=21]
 [ext_resource path="res://assets/images/ambiente/bloco-2.PNG" type="Texture" id=22]
 [ext_resource path="res://scenes/Colectables/Gem.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/sfx/portal.ogg" type="AudioStream" id=24]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 10 )
@@ -150,8 +151,13 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
-frame = 3
 playing = true
+
+[node name="PortalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]
+stream = ExtResource( 24 )
+autoplay = true
+max_distance = 1500.0
+attenuation = 2.63902
 
 [node name="BehindWall" type="TileMap" parent="World"]
 tile_set = ExtResource( 9 )
@@ -307,7 +313,7 @@ nextLevel = ExtResource( 12 )
 shape = SubResource( 12 )
 
 [node name="StartPoint" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 120, 208 )
+position = Vector2( 928, 232 )
 __meta__ = {
 "_edit_group_": true
 }

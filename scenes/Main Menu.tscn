@@ -135,6 +135,9 @@ margin_left = 216.0
 margin_top = 200.0
 margin_right = 264.0
 margin_bottom = 221.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Sair"]
 margin_left = 14.0
