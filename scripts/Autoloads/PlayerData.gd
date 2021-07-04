@@ -6,7 +6,7 @@ signal update_gui
 var lives:int = 3 setget increase_lives
 var collectedWorms:int = 0 setget collect_worms
 var hasGlasses:bool = false setget set_glasses
-var gems:int = 5 setget collect_gems
+var gems:int = 0 setget collect_gems
 var currentLevel = "MainMenu"
 
 func increase_lives(newValue: int) -> void:
@@ -35,5 +35,5 @@ func resetVariables() -> void:
 	lives = 3
 	collectedWorms = 0
 	hasGlasses = false
-	gems = 5
+	gems = 0
 	emit_signal("update_gui")

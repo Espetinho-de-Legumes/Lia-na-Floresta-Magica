@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/images/final-screen.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/dialog-box.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/MainTheme.tres" type="Theme" id=3]
+[ext_resource path="res://scripts/Levels/FinishScreen.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 0.4, 0.402963 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Quadro1" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 86.75, 61 )
+scale = Vector2( 0.586, 0.716667 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Quadro1"]
+margin_left = -118.812
+margin_top = -37.8947
+margin_right = 119.188
+margin_bottom = 10.1053
+text = "Lia voltou para casa com a cura da doença de slime, e sua mãe ficou melhor."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Quadro1"]
+anims/FadeIn = SubResource( 1 )
+
+[node name="Quadro2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 400, 224 )
+scale = Vector2( 0.586, 0.716667 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Quadro2"]
+margin_left = -118.812
+margin_top = -37.8947
+margin_right = 119.188
+margin_bottom = 10.1053
+text = "E pra comemorar a sua melhora, ela fez um bolo e pediu pra Lia chamar todos os amigos que fez em sua jornada."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Quadro2"]
+anims/FadeIn = SubResource( 2 )
+
+[node name="Quadro3" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0
+margin_top = 248.0
+margin_right = 64.0
+margin_bottom = 268.0
+text = "Fim"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Quadro3"]
+anims/FadeIn = SubResource( 3 )
+
+[node name="CountDown" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="CountDown" to="." method="_on_CountDown_timeout"]

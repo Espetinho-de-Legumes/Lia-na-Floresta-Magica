@@ -12,12 +12,12 @@ var gems = -1
 var worms = -1
 var glasses = -1
 var lives = -1
-var execeptionScene = "MainMenu"
+var listOfExecptionsScenes = ["MainMenu", "GameOverScene"]
 
 func _ready() -> void:
 	PlayerData.connect("update_gui", self, "on_update_gui")
 	
-	if PlayerData.currentLevel == execeptionScene:
+	if listOfExecptionsScenes.has(PlayerData.currentLevel):
 		setUserInterfaceVisible(false)
 	else:
 		setUserInterfaceVisible(true)
@@ -26,7 +26,7 @@ func _ready() -> void:
 	on_update_gui()
 
 func _input(event: InputEvent) -> void:
-	if PlayerData.currentLevel == execeptionScene:
+	if listOfExecptionsScenes.has(PlayerData.currentLevel):
 		return
 	
 	if event.is_action_pressed("pause"):

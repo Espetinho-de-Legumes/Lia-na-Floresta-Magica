@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Levels/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/menu-principal/Tela-Lia.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/MainTheme.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 28
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=2]
@@ -15,24 +17,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 240.0 ]
 }
+
+[node name="Tela-Lia" type="Sprite" parent="."]
+scale = Vector2( 0.375, 0.377778 )
+texture = ExtResource( 3 )
+centered = false
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -55.0
-margin_top = -19.5
-margin_right = 55.0
-margin_bottom = 19.5
+margin_left = -48.0
+margin_top = -23.0
+margin_right = 48.0
+margin_bottom = 12.0
 theme = SubResource( 2 )
 text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CountDown" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
+[node name="Jogar Novamente" type="TextureButton" parent="."]
+margin_left = 194.0
+margin_top = 200.0
+margin_right = 290.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
-[connection signal="timeout" from="CountDown" to="." method="_on_CountDown_timeout"]
+[node name="Label" type="Label" parent="Jogar Novamente"]
+margin_right = 40.0
+margin_bottom = 14.0
+theme = ExtResource( 4 )
+text = "Jogar Novamente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sair" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Sair"]
+margin_left = 228.0
+margin_top = 224.0
+margin_right = 252.0
+margin_bottom = 244.0
+theme = ExtResource( 4 )
+text = "SAIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Jogar Novamente" to="." method="playAgain"]
+[connection signal="button_up" from="Sair" to="." method="exitGame"]
