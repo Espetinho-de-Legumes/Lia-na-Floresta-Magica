@@ -21,9 +21,9 @@ shape = SubResource( 1 )
 
 [node name="InitialDialog" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/sealnaldo-lia-inicio.json"
+dialogFile = "assets/falas/sealnaldo-lia-inicio.json"
 
 [node name="EndDialog" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/sealnaldo-lia-fim.json"
+dialogFile = "assets/falas/sealnaldo-lia-fim.json"
 showQuestMark = false

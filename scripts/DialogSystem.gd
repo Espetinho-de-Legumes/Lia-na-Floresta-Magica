@@ -47,9 +47,15 @@ func _input(event: InputEvent) -> void:
 			nextLine()
 
 func loadDialog():
+	var absolutePath
+	if OS.has_feature("editor"):
+		absolutePath = ProjectSettings.globalize_path(dialogFile)
+	else:
+		absolutePath = OS.get_executable_path().get_base_dir().plus_file(dialogFile)
+	
 	var file = File.new()
-	if file.file_exists(dialogFile):
-		file.open(dialogFile, file.READ)
+	if file.file_exists(absolutePath):
+		file.open(absolutePath, file.READ)
 		return parse_json(file.get_as_text())
 
 func nextLine() -> void:

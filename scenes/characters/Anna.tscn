@@ -23,14 +23,9 @@ shape = SubResource( 1 )
 
 [node name="InitialDialog" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/mae-lia-inicio.json"
+dialogFile = "assets/falas/mae-lia-inicio.json"
 
 [node name="EndDialog" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/mae-lia-fim.json"
-showQuestMark = false
-
-[node name="FinishGameDialog" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/mae-lia-fim.json"
+dialogFile = "assets/falas/mae-lia-fim.json"
 showQuestMark = false

@@ -39,7 +39,7 @@ script = ExtResource( 3 )
 [node name="Body" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.0444444, 0.0444445 )
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Glasses" type="Sprite" parent="."]
@@ -53,14 +53,14 @@ shape = SubResource( 6 )
 
 [node name="InitialDialog" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/celo-lia-inicio.json"
+dialogFile = "assets/falas/celo-lia-inicio.json"
 
 [node name="OnQuestDialog" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/celo-lia-on-quest.json"
+dialogFile = "assets/falas/celo-lia-on-quest.json"
 showQuestMark = false
 
 [node name="EndDialog" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/celo-lia-fim.json"
+dialogFile = "assets/falas/celo-lia-fim.json"
 showQuestMark = false
