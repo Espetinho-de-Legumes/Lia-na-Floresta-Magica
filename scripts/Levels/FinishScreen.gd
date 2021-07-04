@@ -6,8 +6,12 @@ onready var Quadro3:Label = get_node("Quadro3")
 
 var listaDeQuadros
 var index = -1
+var levelName = "GameOverScene"
 
 func _ready() -> void:
+	PlayerData.currentLevel = levelName
+	Gui.on_update_gui()
+	GlobalAudioManager.setAudio("MenuTheme")
 	Quadro1.visible = false
 	Quadro2.visible = false
 	Quadro3.visible = false

@@ -272,7 +272,7 @@ MainLevelTheme = "ForestMagicTheme"
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 144, 120 )
-limit_top = -300
+limit_top = -270
 alvo_path = NodePath("../Characters/Player")
 
 [node name="FlorestaMagicaParallax" parent="." instance=ExtResource( 10 )]

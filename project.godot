@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Lia na Floresta Mágica"
-config/description="Jogo desenvolvido para laje. Essa é uma versão de teste"
+config/description="Jogo desenvolvido para laje. Essa é a versão enviada para LAJE"
 run/main_scene="res://scenes/Main Menu.tscn"
 config/icon="res://icon.png"
 
@@ -58,6 +58,7 @@ settings/stdout/print_fps=true
 
 window/size/width=480
 window/size/height=270
+window/size/fullscreen=true
 window/size/test_width=1200
 window/size/test_height=675
 window/vsync/use_vsync=false

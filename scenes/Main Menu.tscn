@@ -12,7 +12,7 @@
 flags = 4
 load_path = "res://.import/Tela-Lia.png-1077557e0b493561d081d696af01ef63.stex"
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "rotate"
 length = 2.5
 tracks/0/type = "value"
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=3]
 resource_name = "rotate"
 length = 2.5
 tracks/0/type = "value"
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 resource_name = "rotate"
 length = 2.5
 tracks/0/type = "value"
@@ -60,19 +60,19 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=5]
 size = 55
 extra_spacing_char = 10
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=16]
-default_font = SubResource( 15 )
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=5]
-default_font = SubResource( 4 )
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
@@ -99,7 +99,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="Background/linha-pontilhada-branca-pequena"]
-anims/rotate = SubResource( 12 )
+anims/rotate = SubResource( 2 )
 
 [node name="linha-pontilhada-branca-pequena2" type="Sprite" parent="Background"]
 position = Vector2( -2, -1 )
@@ -109,7 +109,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="AnimationPlayer5" type="AnimationPlayer" parent="Background/linha-pontilhada-branca-pequena2"]
-anims/rotate = SubResource( 13 )
+anims/rotate = SubResource( 3 )
 
 [node name="linha-pontilhada-verde" type="Sprite" parent="Background"]
 position = Vector2( -2, 0 )
@@ -119,7 +119,7 @@ texture = ExtResource( 7 )
 centered = false
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Background/linha-pontilhada-verde"]
-anims/rotate = SubResource( 14 )
+anims/rotate = SubResource( 4 )
 
 [node name="estrela-branca" parent="Background" instance=ExtResource( 3 )]
 position = Vector2( 38, 112 )
@@ -167,7 +167,7 @@ margin_left = -36.0
 margin_top = -42.5
 margin_right = 36.0
 margin_bottom = 24.5
-theme = SubResource( 16 )
+theme = SubResource( 6 )
 text = "LIA"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -207,7 +207,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Sair"]
 margin_right = 21.0
 margin_bottom = 20.0
-theme = SubResource( 5 )
+theme = SubResource( 8 )
 text = "SAIR"
 __meta__ = {
 "_edit_use_anchors_": false

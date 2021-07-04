@@ -40,18 +40,13 @@ shape = SubResource( 1 )
 
 [node name="InitialDialog" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/jotaro-lia-inicio.json"
-
-[node name="QuestMark" parent="InitialDialog" index="0"]
-visible = true
-
-[node name="DialogContainer" parent="InitialDialog/CanvasLayer" index="0"]
-visible = false
+dialogFile = "res://assets/falas/frey-lia.json"
 
 [node name="Character" parent="InitialDialog/CanvasLayer/DialogContainer" index="1"]
 position = Vector2( 424, 184 )
 scale = Vector2( 5.93063, 5.93063 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [editable path="InitialDialog"]

@@ -17,10 +17,7 @@ var listOfExecptionsScenes = ["MainMenu", "GameOverScene"]
 func _ready() -> void:
 	PlayerData.connect("update_gui", self, "on_update_gui")
 	
-	if listOfExecptionsScenes.has(PlayerData.currentLevel):
-		setUserInterfaceVisible(false)
-	else:
-		setUserInterfaceVisible(true)
+	showGUI()
 	
 	setPauseSceneVisible(false)
 	on_update_gui()
@@ -35,21 +32,25 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = newPauseState
 		setPauseSceneVisible(newPauseState)
 
+func showGUI() -> void:
+	if listOfExecptionsScenes.has(PlayerData.currentLevel):
+		setUserInterfaceVisible(false)
+	else:
+		setUserInterfaceVisible(true)
+
 func on_update_gui() -> void:
+	showGUI()
 	if gems != PlayerData.gems:
 		gems = PlayerData.gems
 		ContadorGems.text = "x%s" % gems
-		print("Gemas %s" % gems)
 	
 	if worms != PlayerData.collectedWorms:
 		worms = PlayerData.collectedWorms
 		ContadorWorms.text = "x %s" % worms
-		print("Minhocas %s" % worms)
 	
 	if lives != PlayerData.lives:
 		lives = PlayerData.lives
 		ContadorLives.text = "x %s" % lives
-		print("Lives %s" % lives)
 	
 	if PlayerData.hasGlasses:
 		glasses = 1
@@ -57,7 +58,7 @@ func on_update_gui() -> void:
 		glasses = 0
 		
 		ContadorGlasses.text = "x%s" % glasses
-		print("Óculos %s" % glasses)
+		# print("Óculos %s" % glasses)
 
 func _on_Voltar_ao_Jogo_pressed() -> void:
 	get_tree().paused = false
