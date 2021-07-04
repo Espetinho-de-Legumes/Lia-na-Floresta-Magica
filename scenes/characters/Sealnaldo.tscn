@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 16 )
 
-[node name="FocaVendedora" type="Area2D"]
+[node name="Sealnaldo" type="Area2D"]
 collision_layer = 32
 script = ExtResource( 2 )
 
@@ -21,9 +21,9 @@ shape = SubResource( 1 )
 
 [node name="InitialDialog" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/jotaro-lia-inicio.json"
+dialogFile = "res://assets/falas/sealnaldo-lia-inicio.json"
 
 [node name="EndDialog" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
-dialogFile = "res://assets/falas/jotaro-lia-fim.json"
+dialogFile = "res://assets/falas/sealnaldo-lia-fim.json"
 showQuestMark = false

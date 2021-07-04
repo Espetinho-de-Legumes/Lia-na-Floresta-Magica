@@ -20,6 +20,7 @@ playback/repeat = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogContainer" type="Control" parent="CanvasLayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 4 )

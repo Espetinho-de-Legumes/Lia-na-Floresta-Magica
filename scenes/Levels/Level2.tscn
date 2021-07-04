@@ -151,7 +151,7 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="PortalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]
@@ -314,7 +314,7 @@ nextLevel = ExtResource( 12 )
 shape = SubResource( 12 )
 
 [node name="StartPoint" type="Area2D" parent="AreaTriggers"]
-position = Vector2( 928, 232 )
+position = Vector2( 128, 200 )
 __meta__ = {
 "_edit_group_": true
 }

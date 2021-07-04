@@ -10,6 +10,9 @@ onready var endPoint: Area2D = get_node("AreaTriggers/EndPoint")
 # var MainLevelTheme = "MainTheme"
 
 func _ready() -> void:
+	PlayerData.currentLevel = levelName
+	Gui.setUserInterfaceVisible(true)
+	
 	PlayerData.connect("game_over", self, "on_game_over")
 	PlayerData.connect("game_over", self, "game_over")
 	
@@ -27,7 +30,7 @@ func _ready() -> void:
 			children.connect("player_died", self, "reset_player")
 
 func reset_player() -> void:
-	PlayerData.lives -= 1
+	PlayerData.increase_lives(-1)
 	player.playerStateMachine.changeState("idle")
 	player.position = startPoint.position
 

@@ -1,23 +1,72 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/images/menu-principal/Estrela-branca.png" type="Texture" id=3]
+[ext_resource path="res://scenes/GUI/estrela-branca.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GUI/estrela-verde.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/menu-principal/Tela-linha-pontilhada-branca-pequena.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/menu-principal/Estrela-verde.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/MainTheme.tres" type="Theme" id=6]
 [ext_resource path="res://assets/images/menu-principal/Tela-linha-pontilhada-verde.png" type="Texture" id=7]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/Tela-Lia.png-1077557e0b493561d081d696af01ef63.stex"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="Animation" id=12]
+resource_name = "rotate"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "rotate"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "rotate"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="DynamicFont" id=15]
 size = 55
 extra_spacing_char = 10
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
+[sub_resource type="Theme" id=16]
+default_font = SubResource( 15 )
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
@@ -42,113 +91,127 @@ scale = Vector2( 0.375, 0.377778 )
 texture = SubResource( 1 )
 centered = false
 
-[node name="estrela-branca" type="Sprite" parent="Background"]
-position = Vector2( 38, 144 )
-scale = Vector2( 0.313333, 0.313333 )
-texture = ExtResource( 3 )
-
-[node name="estrela-branca2" type="Sprite" parent="Background"]
-position = Vector2( 272, 64 )
-scale = Vector2( 0.313333, 0.313333 )
-texture = ExtResource( 3 )
-
-[node name="estrela-branca3" type="Sprite" parent="Background"]
-position = Vector2( 279, 163 )
-scale = Vector2( 0.211667, 0.211667 )
-texture = ExtResource( 3 )
-
-[node name="estrela-branca4" type="Sprite" parent="Background"]
-position = Vector2( 170, 199 )
-scale = Vector2( 0.313333, 0.313333 )
-texture = ExtResource( 3 )
-
-[node name="estrela-branca5" type="Sprite" parent="Background"]
-position = Vector2( 326, 264 )
-scale = Vector2( 0.313333, 0.313333 )
-texture = ExtResource( 3 )
-
-[node name="estrela-branca6" type="Sprite" parent="Background"]
-position = Vector2( 394, 128 )
-scale = Vector2( 0.313333, 0.313333 )
-texture = ExtResource( 3 )
-
 [node name="linha-pontilhada-branca-pequena" type="Sprite" parent="Background"]
 position = Vector2( -206, -102 )
+rotation = 1.74846e-07
 scale = Vector2( 0.691667, 0.691667 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="Background/linha-pontilhada-branca-pequena"]
+anims/rotate = SubResource( 12 )
+
 [node name="linha-pontilhada-branca-pequena2" type="Sprite" parent="Background"]
 position = Vector2( -2, -1 )
+rotation = 1.74846e-07
 scale = Vector2( 0.377778, 0.377778 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="AnimationPlayer5" type="AnimationPlayer" parent="Background/linha-pontilhada-branca-pequena2"]
+anims/rotate = SubResource( 13 )
+
 [node name="linha-pontilhada-verde" type="Sprite" parent="Background"]
 position = Vector2( -2, 0 )
+rotation = 1.74846e-07
 scale = Vector2( 0.377778, 0.377778 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="estrela-verde" type="Sprite" parent="Background"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Background/linha-pontilhada-verde"]
+anims/rotate = SubResource( 14 )
+
+[node name="estrela-branca" parent="Background" instance=ExtResource( 3 )]
+position = Vector2( 38, 112 )
+rotation = 0.523599
+
+[node name="estrela-branca2" parent="Background" instance=ExtResource( 3 )]
+position = Vector2( 320, 264 )
+rotation = 1.0472
+
+[node name="estrela-branca3" parent="Background" instance=ExtResource( 3 )]
+position = Vector2( 394, 128 )
+rotation = 1.5708
+
+[node name="estrela-branca4" parent="Background" instance=ExtResource( 3 )]
+position = Vector2( 267, 61 )
+rotation = 2.0944
+
+[node name="estrela-branca5" parent="Background" instance=ExtResource( 3 )]
+position = Vector2( 184, 211 )
+rotation = 2.61799
+
+[node name="estrela-branca6" parent="Background" instance=ExtResource( 3 )]
+position = Vector2( 277.75, 162.75 )
+rotation = 3.14159
+scale = Vector2( 0.225, 0.225 )
+
+[node name="estrela-verde" parent="Background" instance=ExtResource( 4 )]
 position = Vector2( 72, 16 )
-scale = Vector2( 0.316667, 0.316667 )
-texture = ExtResource( 6 )
 
-[node name="estrela-verde2" type="Sprite" parent="Background"]
-position = Vector2( 164, 44 )
-scale = Vector2( 0.316667, 0.316667 )
-texture = ExtResource( 6 )
+[node name="estrela-verde2" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 401, 7 )
 
-[node name="estrela-verde3" type="Sprite" parent="Background"]
-position = Vector2( 328, 80 )
-scale = Vector2( 0.316667, 0.316667 )
-texture = ExtResource( 6 )
+[node name="estrela-verde3" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 312, 56 )
 
-[node name="estrela-verde4" type="Sprite" parent="Background"]
-position = Vector2( 400, 8 )
-scale = Vector2( 0.316667, 0.316667 )
-texture = ExtResource( 6 )
+[node name="estrela-verde4" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 163, 45 )
 
-[node name="LIA" type="TextureButton" parent="."]
-margin_left = 224.0
-margin_top = 112.0
-margin_right = 263.0
-margin_bottom = 133.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="LIA"]
-margin_left = -19.0
-margin_top = -18.0
-margin_right = 58.0
-margin_bottom = 54.0
-theme = SubResource( 3 )
+[node name="Lia" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.0
+margin_top = -42.5
+margin_right = 36.0
+margin_bottom = 24.5
+theme = SubResource( 16 )
 text = "LIA"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sair" type="TextureButton" parent="."]
-margin_left = 216.0
+[node name="Jogar" type="TextureButton" parent="."]
+margin_left = 226.0
 margin_top = 200.0
-margin_right = 264.0
-margin_bottom = 221.0
+margin_right = 258.0
+margin_bottom = 216.0
+theme = ExtResource( 6 )
 __meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Jogar" type="Label" parent="Jogar"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "JOGAR"
+
+[node name="Sair" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = 84.0
+margin_right = 14.0
+margin_bottom = 105.0
+theme = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Sair"]
-margin_left = 14.0
-margin_top = 20.0
-margin_right = 35.0
-margin_bottom = 40.0
+margin_right = 21.0
+margin_bottom = 20.0
 theme = SubResource( 5 )
 text = "SAIR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="LIA" to="." method="_on_LIA_pressed"]
+[connection signal="button_up" from="Jogar" to="." method="startGame"]
 [connection signal="pressed" from="Sair" to="." method="_on_Sair_pressed"]

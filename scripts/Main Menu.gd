@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	GlobalAudioManager.setAudio("MenuTheme")
+	PlayerData.currentLevel = "MainMenu"
 
 
 func startGame():
@@ -11,10 +12,5 @@ func startGame():
 	if ERROR != OK:
 		print("ERROR")
 
-
 func _on_Sair_pressed():
 	get_tree().quit()
-
-
-func _on_LIA_pressed() -> void:
-	startGame()

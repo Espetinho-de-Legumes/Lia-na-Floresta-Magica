@@ -11,7 +11,7 @@ script = ExtResource( 2 )
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="JotaroQuestTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -19,7 +19,8 @@ volume_db = -20.0
 
 [node name="MenuTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -15.0
 
 [node name="ForestMagicTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -10.0
+volume_db = -15.0

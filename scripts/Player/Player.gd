@@ -138,8 +138,9 @@ func get_position() -> Vector2:
 	return position
 
 func collectWorms() -> void:
-	PlayerData.collectedWorms += 1
-	print(PlayerData.collectedWorms)
+	# PlayerData.collectedWorms += 1
+	PlayerData.collect_worms(1)
+	# print(PlayerData.collectedWorms)
 
 
 func _on_PassThroughCheck_body_entered(body: Node) -> void:

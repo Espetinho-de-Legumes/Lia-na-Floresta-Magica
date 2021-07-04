@@ -102,7 +102,7 @@ script = ExtResource( 2 )
 
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -113,5 +113,6 @@ anims/FadeOut = SubResource( 13 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_Gem_body_entered"]

@@ -9,4 +9,5 @@ func _ready() -> void:
 
 
 func _on_CountDown_timeout() -> void:
+	PlayerData.resetVariables()
 	get_tree().change_scene_to(scene)

@@ -8,6 +8,7 @@ func _on_Gem_body_entered(body: Node) -> void:
 	animationPlayer.play("FadeOut")
 
 func collectCoin() -> void:
-	PlayerData.gems += 1
-	print(PlayerData.gems)
+	# PlayerData.gems += 1
+	PlayerData.collect_gems(1)
+	# print(PlayerData.gems)
 	queue_free()

@@ -1,7 +1,7 @@
 [
   {
     "name": "Mãe",
-    "says": "Olha filha eu to doente, peguei febre do slime, você pode ir na floresta magica e pegar um remédio pra min?"
+    "says": "Olha filha eu to doente você pode ir na floresta magica e pegar um remédio pra min?"
   },
   {
     "name": "Lia",
@@ -33,10 +33,10 @@
   },
   {
     "name": "Lia",
-    "says": "Entendi vou indo então, tchau mãe"
+    "says": "Entendi vou indo então, tiaaau mãe"
   },
   {
     "name": "Mãe",
-    "says": "Tchau filha mamãe te ama, volta logo"
+    "says": "Tiaaau filha mamãe te ama, volta logo"
   }
 ]
