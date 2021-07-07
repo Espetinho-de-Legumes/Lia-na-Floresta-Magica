@@ -5,24 +5,17 @@ export(String) var MainLevelTheme = "MainTheme"
 
 onready var player = get_node("Characters/Player")
 onready var startPoint: Area2D = get_node("AreaTriggers/StartPoint")
-onready var endPoint: Area2D = get_node("AreaTriggers/EndPoint")
-
-# var MainLevelTheme = "MainTheme"
 
 func _ready() -> void:
 	PlayerData.currentLevel = levelName
-	Gui.setUserInterfaceVisible(true)
+	Gui.verifiyGUIVisibilityForCurrentScene()
 	
-	PlayerData.connect("game_over", self, "on_game_over")
 	PlayerData.connect("game_over", self, "game_over")
 	
 	if GlobalAudioManager.currentPlaying == null || GlobalAudioManager.currentPlaying.name != MainLevelTheme:
 		GlobalAudioManager.setAudio(MainLevelTheme)
 	
-	if GameGlobalManager[levelName + "Data"].hasFinishedLevel == false:
-		player.position = startPoint.position
-	else:
-		player.position = endPoint.position
+	player.position = startPoint.position
 	
 	var enemiesNode:Node = get_node_or_null("Enemies")
 	if enemiesNode:

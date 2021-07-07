@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/tiles/oneWayTileSet.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/tiles/behindWall.tres" type="TileSet" id=9]
 [ext_resource path="res://assets/images/portal/Portal.png" type="Texture" id=10]
-[ext_resource path="res://scripts/Triggers/FinishLevel.gd" type="Script" id=11]
+[ext_resource path="res://scripts/Triggers/ChangeLevel.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Levels/Level3.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/images/portal/arvore.png" type="Texture" id=13]
 [ext_resource path="res://scripts/Triggers/DeathZone.gd" type="Script" id=14]
@@ -151,7 +151,7 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
-frame = 8
+frame = 5
 playing = true
 
 [node name="PortalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]

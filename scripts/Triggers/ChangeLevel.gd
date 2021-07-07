@@ -10,5 +10,6 @@ func _get_configuration_warning() -> String:
 	return ""
 
 func _process(delta: float) -> void:
-	if len(get_overlapping_bodies()) > 0:
-		get_tree().change_scene_to(nextLevel)
+	if not Engine.editor_hint:
+		if len(get_overlapping_bodies()) > 0:
+			get_tree().change_scene_to(nextLevel)

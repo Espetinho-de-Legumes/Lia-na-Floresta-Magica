@@ -42,10 +42,14 @@ __meta__ = {
 }
 
 [node name="Jogar Novamente" type="TextureButton" parent="."]
-margin_left = 194.0
-margin_top = 200.0
-margin_right = 290.0
-margin_bottom = 216.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = 65.0
+margin_right = 48.0
+margin_bottom = 81.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -61,18 +65,20 @@ __meta__ = {
 }
 
 [node name="Sair" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -11.0
+margin_top = 85.0
+margin_right = 13.0
+margin_bottom = 101.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Sair"]
-margin_left = 228.0
-margin_top = 224.0
-margin_right = 252.0
-margin_bottom = 244.0
 theme = ExtResource( 4 )
 text = "SAIR"
 __meta__ = {

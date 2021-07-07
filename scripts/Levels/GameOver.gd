@@ -1,11 +1,13 @@
 extends Control
 
 var scene = load("res://scenes/Levels/Level1.tscn")
+var levelName = "GameOverScene"
 var GameOverTheme = "MenuTheme"
 
 func _ready() -> void:
-	# Gui.setPauseSceneVisible(false)
-	# Gui.setUserInterfaceVisible(false)
+	PlayerData.currentLevel = levelName
+	Gui.verifiyGUIVisibilityForCurrentScene()
+
 	if GlobalAudioManager.currentPlaying == null || GlobalAudioManager.currentPlaying.name != GameOverTheme:
 		GlobalAudioManager.setAudio(GameOverTheme)
 
