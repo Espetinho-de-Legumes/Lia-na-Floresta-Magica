@@ -6,12 +6,10 @@ onready var UserInterface: Control = get_node("UserInterface")
 onready var ContadorGems = get_node("UserInterface/items_missoes/gems/contador")
 onready var ContadorWorms = get_node("UserInterface/items_missoes/worms/contador")
 onready var ContadorGlasses = get_node("UserInterface/items_missoes/contador_glasses")
-onready var ContadorLives = get_node("UserInterface/lives/contador")
 
 var gems = -1
 var worms = -1
 var glasses = -1
-var lives = -1
 var listOfExecptionsScenes = ["MainMenu", "GameOverScene"]
 
 func _ready() -> void:
@@ -46,10 +44,6 @@ func on_update_gui() -> void:
 	if worms != PlayerData.collectedWorms:
 		worms = PlayerData.collectedWorms
 		ContadorWorms.text = "x %s" % worms
-	
-	if lives != PlayerData.lives:
-		lives = PlayerData.lives
-		ContadorLives.text = "x %s" % lives
 	
 	if PlayerData.hasGlasses:
 		glasses = 1

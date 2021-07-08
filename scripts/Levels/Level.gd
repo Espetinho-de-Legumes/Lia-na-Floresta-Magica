@@ -10,7 +10,7 @@ func _ready() -> void:
 	PlayerData.currentLevel = levelName
 	Gui.verifiyGUIVisibilityForCurrentScene()
 	
-	PlayerData.connect("game_over", self, "game_over")
+	# PlayerData.connect("game_over", self, "game_over")
 	
 	if GlobalAudioManager.currentPlaying == null || GlobalAudioManager.currentPlaying.name != MainLevelTheme:
 		GlobalAudioManager.setAudio(MainLevelTheme)
@@ -23,7 +23,8 @@ func _ready() -> void:
 			children.connect("player_died", self, "reset_player")
 
 func reset_player() -> void:
-	PlayerData.increase_lives(-1)
+	# PlayerData.increase_lives(-1)
+	PlayerData.increase_deaths(1)
 	player.playerStateMachine.changeState("idle")
 	player.position = startPoint.position
 

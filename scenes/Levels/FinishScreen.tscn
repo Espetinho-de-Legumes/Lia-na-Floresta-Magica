@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/images/final-screen.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/dialog-box.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/MainTheme.tres" type="Theme" id=3]
 [ext_resource path="res://scripts/Levels/FinishScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/images/status-box.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -127,8 +128,63 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Quadro3"]
 anims/FadeIn = SubResource( 3 )
 
+[node name="PlayerStatus" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.823529 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -60.0
+margin_right = 125.0
+margin_bottom = 60.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PlayerStatus"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = -52.0
+margin_right = 38.5
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Deaths" type="Label" parent="PlayerStatus/HBoxContainer"]
+margin_right = 102.0
+margin_bottom = 20.0
+text = "Mortes %s"
+align = 1
+
+[node name="Stars" type="Label" parent="PlayerStatus/HBoxContainer"]
+margin_top = 24.0
+margin_right = 102.0
+margin_bottom = 44.0
+text = "Estrelas: %s"
+align = 1
+
+[node name="PlayAgain" type="Button" parent="PlayerStatus/HBoxContainer"]
+margin_top = 48.0
+margin_right = 102.0
+margin_bottom = 74.0
+text = "Jogar Novamente"
+
+[node name="Quit" type="Button" parent="PlayerStatus/HBoxContainer"]
+margin_top = 78.0
+margin_right = 102.0
+margin_bottom = 104.0
+text = "Sair do Jogo"
+
 [node name="CountDown" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
+[connection signal="button_up" from="PlayerStatus/HBoxContainer/PlayAgain" to="." method="_on_PlayAgain_button_up"]
+[connection signal="button_up" from="PlayerStatus/HBoxContainer/Quit" to="." method="_on_Quit_button_up"]
 [connection signal="timeout" from="CountDown" to="." method="_on_CountDown_timeout"]

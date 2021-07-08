@@ -3,18 +3,18 @@ signal game_over
 signal game_completed
 signal update_gui
 
-var lives:int = 3 setget increase_lives
+var questsCompleted = {
+	"Jotaro": false,
+	"Celo": false
+}
+var deaths:int = 0 setget increase_deaths
 var collectedWorms:int = 0 setget collect_worms
 var hasGlasses:bool = false setget set_glasses
 var gems:int = 0 setget collect_gems
 var currentLevel = "MainMenu"
 
-func increase_lives(newValue: int) -> void:
-	lives += newValue
-	emit_signal("update_gui")
-	
-	if lives <= 0:
-		emit_signal("game_over")
+func increase_deaths(newValue:int) -> void:
+	deaths += newValue
 
 func collect_worms(newValue:int) -> void:
 	collectedWorms += newValue
@@ -32,8 +32,12 @@ func collect_gems(newValue:int) -> void:
 	emit_signal("update_gui")
 
 func resetVariables() -> void:
-	lives = 3
+	deaths = 0
 	collectedWorms = 0
 	hasGlasses = false
 	gems = 0
+	questsCompleted = {
+	"Jotaro": false,
+	"Celo": false
+}
 	emit_signal("update_gui")
