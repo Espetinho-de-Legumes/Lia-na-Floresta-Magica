@@ -15,6 +15,7 @@ func handleCustomLogic():
 		if PlayerData.collectedWorms >= wormsToCollect:
 			questFinished = true
 			hasFinished = true
+			PlayerData.collect_worms(-wormsToCollect)
 			emit_signal("finish_jotaro_quest")
 
 func _on_InitialDialog_dialogFinished() -> void:
