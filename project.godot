@@ -110,8 +110,6 @@ use={
 2d_physics/layer_4="Chao"
 2d_physics/layer_5="Enemies"
 2d_physics/layer_6="NPC"
-2d_physics/layer_7="HitBoxes"
-2d_physics/layer_8="HurtBoxes"
 
 [physics]
 

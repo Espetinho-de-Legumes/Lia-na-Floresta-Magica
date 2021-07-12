@@ -3,9 +3,11 @@ class_name Player
 
 onready var animationTree: AnimationTree = get_node("AnimationTree")
 onready var body: Sprite = get_node("Body")
+onready var GroundCheckerRay: RayCast2D = get_node("GroundChecker")
+
 onready var jumpSFX:AudioStreamPlayer = get_node("SFX/jumpSFX")
-onready var walkSFX:AudioStreamPlayer = get_node("SFX/walkSFX")
-onready var walkRockSFX:AudioStreamPlayer = get_node("SFX/walkRockSFX")
+onready var grassSFX:AudioStreamPlayer = get_node("SFX/grassSFX")
+onready var rockSFX:AudioStreamPlayer = get_node("SFX/rockSFX")
 
 export (int) var maxSpeed = 200
 export (int) var acceleration = 600
@@ -40,8 +42,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
-	playerStateMachine.currentState.physicsUpdate(delta)
 	move()
+	playerStateMachine.currentState.physicsUpdate(delta)
 
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):

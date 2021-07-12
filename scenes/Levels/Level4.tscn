@@ -295,7 +295,7 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 131099, 0, 0, 131100, 0, 1, 131101, 0, 2, 262171, 0, 0, 262172, 0, 1, 262173, 0, 2 )
 
-[node name="Ground" type="TileMap" parent="World"]
+[node name="Grass" type="TileMap" parent="World"]
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 8

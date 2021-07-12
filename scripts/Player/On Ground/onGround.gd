@@ -16,4 +16,3 @@ func update(delta: float) -> void:
 		emit_signal("finished", "jump")
 	
 	self.actor.fallThroughPlataform()
-

@@ -70,7 +70,7 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -151,7 +151,7 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="PortalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]
@@ -176,7 +176,7 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 131122, 0, 131072, 131123, 0, 1, 131124, 0, 1, 131125, 0, 1, 131126, 0, 131073, 262195, 0, 65537, 262196, 0, 0, 262197, 0, 65536, 393267, 0, 4, 393268, 0, 1, 393269, 0, 65536 )
 
-[node name="Ground" type="TileMap" parent="World"]
+[node name="Grass" type="TileMap" parent="World"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 8
