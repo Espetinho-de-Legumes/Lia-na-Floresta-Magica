@@ -1,5 +1,4 @@
 extends "res://scripts/Player/On Air/onAir.gd"
-# class_name falling
 
 
 func enter() -> void:
@@ -9,6 +8,14 @@ func enter() -> void:
 		self.actor.animationTree.set("parameters/on_air/current", 1)
 
 func physicsUpdate(delta: float) -> void:
+	.physicsUpdate(delta)
+	
+	if self.actor.is_on_floor():
+		if self.actor.velocity.x == 0:
+			emit_signal("finished", "idle")
+		else:
+			emit_signal("finished", "walk")
+	
 	self.actor.fallThroughPlataform()
 
 func get_name() -> String:

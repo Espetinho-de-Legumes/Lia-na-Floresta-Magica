@@ -1,6 +1,4 @@
 extends "res://scripts/Player/On Ground/onGround.gd"
-# class_name idle
-
 
 func enter() -> void:
 	.enter()
@@ -9,7 +7,6 @@ func enter() -> void:
 		self.actor.animationTree.set("parameters/on_ground/current", 0)
 	
 	stop()
-	# print("IDLE State")
 
 func update(delta: float) -> void:
 	.update(delta)

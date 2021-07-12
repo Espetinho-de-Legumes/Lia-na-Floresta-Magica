@@ -6,11 +6,10 @@ onready var body: Sprite = get_node("Body")
 onready var jumpSFX:AudioStreamPlayer = get_node("SFX/jumpSFX")
 onready var walkSFX:AudioStreamPlayer = get_node("SFX/walkSFX")
 onready var walkRockSFX:AudioStreamPlayer = get_node("SFX/walkRockSFX")
-# onready var landingSFX:AudioStreamPlayer = get_node("SFX/landingSFX")
 
-export (int) var maxSpeed = 180
+export (int) var maxSpeed = 200
 export (int) var acceleration = 600
-export (int) var friction = -1000
+export (int) var friction = -1200
 export (int) var gravity = 2600 # pixel/sec
 export (int) var jumpForce = -300
 export (int) var jumpSustain = 220 # milisegundos
@@ -20,8 +19,6 @@ var directionInput := Vector2.ZERO
 var hasFalledThrough:bool = false
 var collidingWithPlataform:bool = false
 var collidingWithRockGround: bool = false
-# var collectedWorms: int = 0
-# var hasCompletedMainQuest: bool = false
 
 var playerStateMachine: StateMachine = load("res://scripts/StateMachine.gd").new()
 
@@ -64,14 +61,10 @@ func basicInputs() -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		directionInput.y = -1
+	elif Input.is_action_just_pressed("Fall"):
+		directionInput.y = 1
 	else:
 		directionInput.y = 0
-	
-	if Input.is_action_pressed("Fall"):
-		directionInput.y = 1
-	
-	# if Input.is_action_just_released("jump"):
-		# directionInput.y = 0
 
 func applyGravity(delta: float) -> void:
 	velocity.y += gravity * delta
@@ -138,9 +131,7 @@ func get_position() -> Vector2:
 	return position
 
 func collectWorms() -> void:
-	# PlayerData.collectedWorms += 1
 	PlayerData.collect_worms(1)
-	# print(PlayerData.collectedWorms)
 
 
 func _on_PassThroughCheck_body_entered(body: Node) -> void:

@@ -1,5 +1,4 @@
 extends "res://scripts/InterfaceState.gd"
-# class_name onGround
 
 
 func enter() -> void:

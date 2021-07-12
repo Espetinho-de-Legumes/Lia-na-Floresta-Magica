@@ -11,19 +11,13 @@ https://github.com/GDQuest/godot-demos/tree/master/2018/04-24-finite-state-machi
 extends Node
 class_name StateMachine
 
-# signal state_changed(currentState)
-
-# export(Array, String, FILE, "*gd") var listOfStates setget setList
-
 var statesMap = {}
 var currentState:Node = null
 var isActive:bool = false setget setActive
-# var listOfStates = []
 
 func init(actor: KinematicBody2D, listOfStates: Array) -> void:
 	var i:int = 0
 	var initialState = null
-	print(listOfStates)
 	
 	for state in listOfStates:
 		var instanceOfState:InterfaceState = load(state).new()
@@ -54,5 +48,4 @@ func changeState(newState: String) -> void:
 	
 	currentState.exit()
 	currentState = statesMap[newState]
-	# emit_signal("state_changed", currentState)
 	currentState.enter()

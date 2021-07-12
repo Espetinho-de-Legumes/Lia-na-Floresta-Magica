@@ -1,5 +1,4 @@
 extends "res://scripts/Player/On Air/onAir.gd"
-# class_name jumping
 
 var inAirTime: float = 0.0
 
@@ -13,11 +12,10 @@ func enter() -> void:
 	inAirTime = 0.0
 	
 	self.actor.jumpSFX.play()
-	
-	# print("Jumping State")
 
-func physicsUpdate(delta) -> void:
+func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)
+	
 	inAirTime += delta * 1000.0
 	
 	if self.actor.directionInput.y < 0:
@@ -29,8 +27,8 @@ func physicsUpdate(delta) -> void:
 	if self.actor.velocity.y > 0:
 		emit_signal("finished", "falling")
 	
-	if self.actor.is_on_floor() && self.actor.velocity.y >= 0.0:
-		inAirTime = 0
+	# if self.actor.is_on_floor() && self.actor.velocity.y >= 0.0:
+		# inAirTime = 0
 
 func get_name() -> String:
 	return "jump"
