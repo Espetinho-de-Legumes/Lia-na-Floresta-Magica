@@ -16,17 +16,11 @@ func enter() -> void:
 	if mapOfGroundSounds.empty():
 		mapOfGroundSounds = {
 			"Grass": self.actor.grassSFX,
-			"Rock": self.actor.rockSFX
+			"Cave": self.actor.rockSFX
 		}
-	
-	# self.actor.walkSFX.play()
-	# currentSFXPlaying = "walkSFX"
 
 func exit() -> void:
 	.exit()
-	
-	# self.actor.walkSFX.stop()
-	# self.actor.walkRockSFX.stop()
 
 func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)
@@ -39,15 +33,17 @@ func physicsUpdate(delta: float) -> void:
 	if self.actor.velocity.x == 0:
 		emit_signal("finished", "idle")
 	
-	playDynamicSound()
+	if GroundCheckerRay.is_colliding():
+		playDynamicSound()
 
 func playDynamicSound() -> void:
 	var groundType = GroundCheckerRay.get_collider().name
+	var sfx: AudioStreamPlayer = mapOfGroundSounds[groundType]
 	
-	if groundType == "Cave":
-		print("Play with Reverb")
-	else:
-		mapOfGroundSounds[groundType].play()
+	if sfx.playing:
+		return
+	
+	sfx.play()
 
 func get_name() -> String:
 	return "walk"

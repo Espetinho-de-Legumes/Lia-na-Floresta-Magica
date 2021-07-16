@@ -127,7 +127,7 @@ nodes/on_air/position = Vector2( -40, 460 )
 nodes/on_ground/node = SubResource( 14 )
 nodes/on_ground/position = Vector2( -60, 280 )
 nodes/output/position = Vector2( 440, 380 )
-node_connections = [ "output", 0, "ground_air_state", "on_ground", 0, "Idle Animation", "on_ground", 1, "Walk Animation", "on_air", 0, "Jump Animation", "on_air", 1, "Falling Animation", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air" ]
+node_connections = [ "output", 0, "ground_air_state", "on_ground", 0, "Idle Animation", "on_ground", 1, "Walk Animation", "ground_air_state", 0, "on_ground", "ground_air_state", 1, "on_air", "on_air", 0, "Jump Animation", "on_air", 1, "Falling Animation" ]
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.999995, 1.00973 )
@@ -138,7 +138,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 5
-frame = 6
+frame = 3
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2( -8, -12 )
@@ -160,7 +160,6 @@ shape = SubResource( 3 )
 
 [node name="GroundChecker" type="RayCast2D" parent="."]
 position = Vector2( 0, 7.92291 )
-scale = Vector2( 1, 1 )
 enabled = true
 cast_to = Vector2( 0, 16 )
 collision_mask = 8

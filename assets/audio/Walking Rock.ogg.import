@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Walking Rock.ogg-4385db81e29011606138fca4058f64bf.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
