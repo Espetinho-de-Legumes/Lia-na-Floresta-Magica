@@ -42,8 +42,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
-	move()
 	playerStateMachine.currentState.physicsUpdate(delta)
+	move()
 
 func basicInputs() -> void:
 	if Input.is_action_pressed("right"):
@@ -94,7 +94,6 @@ func acelerar(delta: float) -> void:
 			velocity.x = -maxSpeed
 
 func canJump() -> bool:
-	
 	return directionInput.y < 0 && is_on_floor()
 
 func fallThroughPlataform() -> void:

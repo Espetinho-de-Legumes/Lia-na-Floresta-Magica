@@ -11,7 +11,6 @@ onready var NameLabel: Label = get_node("CanvasLayer/DialogContainer/DialogBox/N
 onready var TextBox: RichTextLabel = get_node("CanvasLayer/DialogContainer/DialogBox/Text")
 onready var endTimer: Timer = get_node("EndTimer")
 onready var questMark = get_node("QuestMark")
-# onready var tween: Tween = get_node("Tween")
 
 var listOfDialogs = []
 var currentIndex: int = -1
@@ -28,9 +27,6 @@ func _ready() -> void:
 	setActive(false)
 	listOfDialogs = loadDialog()
 	questMark.visible = showQuestMark
-	
-	# tween.interpolate_property(questMark, "rect_position:y", Vector2.ZERO, Vector2(0, 200), 10, Tween.TRANS_BOUNCE, Tween.EASE_IN)
-	# tween.start()
 
 func play() -> void:
 	if isActive:

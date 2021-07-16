@@ -7,6 +7,10 @@ func enter() -> void:
 	if self.actor.animationTree != null:
 		self.actor.animationTree.set("parameters/on_air/current", 1)
 
+func exit() -> void:
+	.exit()
+	self.actor.directionInput.y = 0
+
 func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)
 	

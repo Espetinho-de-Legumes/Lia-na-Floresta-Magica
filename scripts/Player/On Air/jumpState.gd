@@ -1,5 +1,6 @@
 extends "res://scripts/Player/On Air/onAir.gd"
 
+var inputBeingPressed = true
 var inAirTime: float = 0.0
 
 func enter() -> void:
@@ -10,18 +11,24 @@ func enter() -> void:
 	
 	self.actor.velocity.y = self.actor.jumpForce
 	inAirTime = 0.0
+	inputBeingPressed = true
 	
 	self.actor.jumpSFX.play()
+
+func handleInput(event: InputEvent) -> void:
+	.handleInput(event)
+	
+	inputBeingPressed = Input.is_action_pressed("jump")
 
 func physicsUpdate(delta: float) -> void:
 	.physicsUpdate(delta)
 	
 	inAirTime += delta * 1000.0
 	
-	if self.actor.directionInput.y < 0:
+	if inputBeingPressed:
 		if inAirTime < self.actor.jumpSustain:
 			self.actor.velocity.y = self.actor.jumpForce
-	elif self.actor.directionInput.y == 0:
+	else:
 		inAirTime = self.actor.jumpSustain
 	
 	if self.actor.velocity.y > 0:

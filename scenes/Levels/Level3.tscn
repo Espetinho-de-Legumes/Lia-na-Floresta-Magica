@@ -291,7 +291,7 @@ texture = ExtResource( 11 )
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( 32, 192 )
 frames = SubResource( 11 )
-frame = 4
+frame = 3
 playing = true
 flip_h = true
 
