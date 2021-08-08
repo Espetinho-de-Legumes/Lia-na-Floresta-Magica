@@ -159,10 +159,10 @@ position = Vector2( 312, 56 )
 position = Vector2( 163, 45 )
 
 [node name="Lia" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_left = 0.508333
+anchor_top = 0.512963
+anchor_right = 0.508333
+anchor_bottom = 0.512963
 margin_left = -36.0
 margin_top = -42.5
 margin_right = 36.0

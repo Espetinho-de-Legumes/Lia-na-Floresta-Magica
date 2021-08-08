@@ -77,14 +77,14 @@ func move() -> void:
 	if velocity.y > 0 && velocity.y < 0.5:
 		velocity.y = 0
 
-func desacelerar(delta: float) -> void:
-	velocity.x += friction * delta
+func desacelerar() -> void:
+	velocity.x += friction
 	
 	if (friction < 0 && velocity.x <= 0) || (friction > 0 && velocity.x >= 0):
 		velocity.x = 0
 
-func acelerar(delta: float) -> void:
-	velocity.x += directionInput.x * acceleration * delta
+func acelerar() -> void:
+	velocity.x += directionInput.x * acceleration
 	
 	if directionInput.x > 0:
 		if velocity.x >= maxSpeed:

@@ -10,6 +10,6 @@ func handleInput(event: InputEvent) -> void:
 
 func physicsUpdate(delta: float) -> void:
 	if self.actor.directionInput.x > 0 || self.actor.directionInput.x < 0:
-		self.actor.acelerar(delta)
+		self.actor.acelerar()
 	else:
-		self.actor.desacelerar(delta)
+		self.actor.desacelerar()

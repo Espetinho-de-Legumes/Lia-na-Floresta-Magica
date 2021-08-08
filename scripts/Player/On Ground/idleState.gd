@@ -16,7 +16,7 @@ func update(delta: float) -> void:
 
 func physicsUpdate(delta:float) -> void:
 	.physicsUpdate(delta)
-	self.actor.desacelerar(delta)
+	self.actor.desacelerar()
 
 func get_name() -> String:
 	return "idle"
