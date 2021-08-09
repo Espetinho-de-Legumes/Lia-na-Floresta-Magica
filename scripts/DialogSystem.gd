@@ -11,11 +11,13 @@ onready var NameLabel: Label = get_node("CanvasLayer/DialogContainer/DialogBox/N
 onready var TextBox: RichTextLabel = get_node("CanvasLayer/DialogContainer/DialogBox/Text")
 onready var endTimer: Timer = get_node("EndTimer")
 onready var questMark = get_node("QuestMark")
+onready var TypingEffectTween: Tween = get_node("CanvasLayer/DialogContainer/TypingEffect")
 
 var listOfDialogs = []
 var currentIndex: int = -1
-var currentCharacter: int = -1
+# var currentCharacter: int = -1
 var isActive: bool = false setget setActive
+var hasFinished: bool = false
 
 func _get_configuration_warning() -> String:
 	if (dialogFile == null):
@@ -39,7 +41,8 @@ func play() -> void:
 
 func _input(event: InputEvent) -> void:
 	if !Engine.editor_hint:
-		if event.is_action_pressed("use") && isActive:
+		if event.is_action_pressed("use") && isActive && hasFinished:
+			hasFinished = false
 			nextLine()
 
 func loadDialog():
@@ -56,14 +59,22 @@ func loadDialog():
 
 func nextLine() -> void:
 	currentIndex += 1
-	currentCharacter = -1
+	# currentCharacter = -1
 	
 	if currentIndex >= len(listOfDialogs):
+		# TextBox.visible_characters = 1
 		endTimer.start()
 		return
 	
+	TextBox.visible_characters = 0
+	var textLength = listOfDialogs[currentIndex].says.length()
+	
 	NameLabel.text = listOfDialogs[currentIndex].name + " Diz:"
 	TextBox.text = listOfDialogs[currentIndex].says
+	TypingEffectTween.interpolate_property(TextBox, "percent_visible",
+				0.0, 1.0, textLength * get_physics_process_delta_time(),
+				Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	TypingEffectTween.start()
 
 func setActive(newValue:bool) -> void:
 	isActive = newValue
@@ -82,3 +93,8 @@ func _on_EndTimer_timeout() -> void:
 	setPlayerActive(true)
 	questMark.visible = false
 	emit_signal("dialogFinished")
+
+
+func _on_TypingEffect_tween_completed(object: Object, key: NodePath) -> void:
+	hasFinished = true
+	print("Has Finished Text = ", hasFinished)

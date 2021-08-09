@@ -38,7 +38,6 @@ anims/YoYo = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogContainer" type="Control" parent="CanvasLayer"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 4 )
@@ -87,8 +86,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TypingEffect" type="Tween" parent="CanvasLayer/DialogContainer"]
+
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
 
+[connection signal="tween_completed" from="CanvasLayer/DialogContainer/TypingEffect" to="." method="_on_TypingEffect_tween_completed"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_EndTimer_timeout"]

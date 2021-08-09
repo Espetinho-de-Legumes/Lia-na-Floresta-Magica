@@ -77,12 +77,6 @@ func move() -> void:
 	if velocity.y > 0 && velocity.y < 0.5:
 		velocity.y = 0
 
-func desacelerar() -> void:
-	velocity.x += friction
-	
-	if (friction < 0 && velocity.x <= 0) || (friction > 0 && velocity.x >= 0):
-		velocity.x = 0
-
 func acelerar() -> void:
 	velocity.x += directionInput.x * acceleration
 	
@@ -92,6 +86,12 @@ func acelerar() -> void:
 	else:
 		if velocity.x <= -maxSpeed:
 			velocity.x = -maxSpeed
+
+func desacelerar() -> void:
+	velocity.x += friction
+	
+	if (friction < 0 && velocity.x <= 0) || (friction > 0 && velocity.x >= 0):
+		velocity.x = 0
 
 func canJump() -> bool:
 	return directionInput.y < 0 && is_on_floor()
