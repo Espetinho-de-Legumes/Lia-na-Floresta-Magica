@@ -39,9 +39,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Lia na Floresta Mágica"
-config/description="Jogo desenvolvido para laje. Essa é a versão enviada para LAJE"
+config/description="Jogo desenvolvido para laje. Versão final"
 run/main_scene="res://scenes/Main Menu.tscn"
 config/icon="res://icon.png"
+
+[audio]
+
+description="Jogo desenvolvido para laje. Essa é a versão enviada para LAJE"
 
 [autoload]
 
