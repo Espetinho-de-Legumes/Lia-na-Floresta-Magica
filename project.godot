@@ -50,7 +50,6 @@ description="Jogo desenvolvido para laje. Essa é a versão enviada para LAJE"
 [autoload]
 
 GlobalAudioManager="*res://autoloads/GlobalAudioManager.tscn"
-GameGlobalManager="*res://autoloads/LevelManager.tscn"
 Gui="*res://autoloads/GUI.tscn"
 PlayerData="*res://autoloads/PlayerData.tscn"
 

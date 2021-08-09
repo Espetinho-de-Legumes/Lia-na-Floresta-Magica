@@ -97,4 +97,3 @@ func _on_EndTimer_timeout() -> void:
 
 func _on_TypingEffect_tween_completed(object: Object, key: NodePath) -> void:
 	hasFinished = true
-	print("Has Finished Text = ", hasFinished)
