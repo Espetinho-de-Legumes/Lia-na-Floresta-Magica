@@ -1,7 +1,7 @@
 # Lia na Floresta Mágica
 Jogo desenvolvido para LAJE no processo seletivo da [GDP UFRJ](https://gdpufrj.itch.io/)
 
-<img align="left" src="./lia-modelo.png" height="400px" style="float: left; margin-right: 16px;"/>
+<img align="left" src="./lia-modelo.png" height="350px" style=" margin-right: 16px;"/>
 
 ## Sinopse
 Lia é uma adolescente meio-elfa que vive com sua mãe em uma cabana aconchegante. Mas devido a uma doença que sua mãe pegou chamada *doença do slime*, Lia precisa se aventurar até a floresta élfica e encontrar com seu tio Frey para pegar o remédio.
