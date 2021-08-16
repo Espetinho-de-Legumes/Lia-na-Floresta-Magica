@@ -151,7 +151,7 @@ flip_h = true
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( -33, -48 )
 frames = SubResource( 11 )
-frame = 9
+frame = 4
 playing = true
 
 [node name="PortalSFX" type="AudioStreamPlayer2D" parent="World/arvore-portal"]

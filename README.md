@@ -20,6 +20,7 @@ Lia é uma adolescente meio-elfa que vive com sua mãe em uma cabana aconchegant
   <li>Use A e D ou Seta para Direita e Seta para Esquerda para se mover.</li>
   <li>Espaço ou Seta para Cima para pular</li>
   <li>ESC para pausar</li>
+  <li>Tecla E para interagir com os NPCs</li>
 </ul>
 
 ## Plataforma
@@ -28,15 +29,21 @@ Windows
 ## Página no itch.io
 https://gdpufrj.itch.io/laje-4
 
+## Repositório
+https://github.com/Espetinho-de-Legumes/Lia-na-Floresta-Magica
+
 # Versões
 ## 1.0.1
+### Correção de Bugs
 * Corrigido problema de quando morria nascia no lugar errado.
 * Corrigido botão de sair do jogo que não funcionava.
-* Para deixar o jogo mais fácil, foi retirado a tela de Game Over e adicionado um contador de mortes.
-* Agora ocorre um fade-in / fade-out entre as músicas do jogo.
 * Corrigido problemas que as minhocas da quest do Jotaro não eram descontadas.
 * Jogador refatorado.
-* Os passos possuem sons diferentes dependendo da surperfície.
 * Corrigido problema do pulo que fazia parecer que o jogador "batia" no teto.
+### Implementado
+* Agora ocorre um fade-in / fade-out entre as músicas do jogo.
+* Para deixar o jogo mais fácil, foi retirado a tela de Game Over e adicionado um contador de mortes.
+* Os passos possuem sons diferentes dependendo da surperfície.
 * Movimentação alterada.
 * Adicionado um efeito de *digitação* no diálogo.
+* Ao completar uma quest voce ganha uma estrela

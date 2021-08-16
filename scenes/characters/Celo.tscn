@@ -39,7 +39,7 @@ script = ExtResource( 3 )
 [node name="Body" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.0444444, 0.0444445 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Glasses" type="Sprite" parent="."]

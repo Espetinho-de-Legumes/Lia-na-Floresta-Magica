@@ -28,5 +28,5 @@ func reset_player() -> void:
 	player.playerStateMachine.changeState("idle")
 	player.position = startPoint.position
 
-func game_over():
-	get_tree().change_scene_to(load("res://scenes/Levels/GameOver.tscn"))
+func _on_Celo_finish_celo_quest() -> void:
+	PlayerData.questsCompleted.Celo = true

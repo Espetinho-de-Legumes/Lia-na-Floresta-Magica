@@ -291,7 +291,7 @@ texture = ExtResource( 11 )
 [node name="portal" type="AnimatedSprite" parent="World/arvore-portal"]
 position = Vector2( 32, 192 )
 frames = SubResource( 11 )
-frame = 9
+frame = 5
 playing = true
 flip_h = true
 
@@ -425,6 +425,7 @@ script = ExtResource( 6 )
 position = Vector2( 568, 56 )
 shape = SubResource( 22 )
 
+[connection signal="finish_celo_quest" from="Characters/Celo" to="." method="_on_Celo_finish_celo_quest"]
 [connection signal="reset_player" from="AreaTriggers/DeathZone" to="." method="reset_player"]
 [connection signal="reset_player" from="AreaTriggers/DeathZone2" to="." method="reset_player"]
 [connection signal="reset_player" from="AreaTriggers/DeathZone3" to="." method="reset_player"]
