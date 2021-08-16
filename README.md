@@ -11,7 +11,7 @@ Lia é uma adolescente meio-elfa que vive com sua mãe em uma cabana aconchegant
   <li>Programador: <a href="https://devdiegomatos.com.br">Diego V. S. de Matos</a></li>
   <li>Artistas: Nicholas e <a href="https://www.behance.net/dandaodara">Dandara</a> (<a href="https://www.instagram.com/danda.odara">@danda.odara</a>)</li>
   <li>Músicos: <a href="https://soundcloud.com/trine_sheep">Patrine</a></li>
-  <li><a href="https://itch.io/profile/besouro">Roteirista: Vitor Besouro</a></li>
+  <li>Roteirista: <a href="https://itch.io/profile/besouro">Vitor Besouro</a></li>
 </ul>
 
 
