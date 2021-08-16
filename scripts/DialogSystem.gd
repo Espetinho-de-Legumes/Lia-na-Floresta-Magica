@@ -12,10 +12,10 @@ onready var TextBox: RichTextLabel = get_node("CanvasLayer/DialogContainer/Dialo
 onready var endTimer: Timer = get_node("EndTimer")
 onready var questMark = get_node("QuestMark")
 onready var TypingEffectTween: Tween = get_node("CanvasLayer/DialogContainer/TypingEffect")
+onready var NextLineBtn: TextureButton = get_node("CanvasLayer/DialogContainer/DialogBox/NextButton")
 
 var listOfDialogs = []
 var currentIndex: int = -1
-# var currentCharacter: int = -1
 var isActive: bool = false setget setActive
 var hasFinished: bool = false
 
@@ -59,10 +59,10 @@ func loadDialog():
 
 func nextLine() -> void:
 	currentIndex += 1
-	# currentCharacter = -1
+	NextLineBtn.visible = false;
+	NextLineBtn.disabled = false;
 	
 	if currentIndex >= len(listOfDialogs):
-		# TextBox.visible_characters = 1
 		endTimer.start()
 		return
 	
@@ -78,6 +78,7 @@ func nextLine() -> void:
 
 func setActive(newValue:bool) -> void:
 	isActive = newValue
+	NextLineBtn.disabled = newValue;
 	dialogueContainer.visible = newValue
 
 func setPlayerActive(newValue: bool) -> void:
@@ -91,9 +92,16 @@ func _on_EndTimer_timeout() -> void:
 	currentIndex = -1
 	setActive(false)
 	setPlayerActive(true)
+	NextLineBtn.disabled = true;
 	questMark.visible = false
 	emit_signal("dialogFinished")
 
 
 func _on_TypingEffect_tween_completed(object: Object, key: NodePath) -> void:
+	NextLineBtn.disabled = false;
+	NextLineBtn.visible = true;
 	hasFinished = true
+
+func _on_NextButton_pressed() -> void:
+		hasFinished = false
+		nextLine()
